@@ -13,7 +13,9 @@ build
 !build/entitlements.mac.plist
 
 # pouch
-pouch/*.webhapp
+# pouch/*.webhapp
+# pouch/*.happ
+# pouch/*.dna
 
 # electron-builder
 out/
