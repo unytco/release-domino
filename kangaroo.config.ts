@@ -1,9 +1,9 @@
 import { defineConfig } from './src/main/defineConfig';
 
 export default defineConfig({
-  appId: 'org.unyt.hfvz',
+  appId: 'co.unyt.hfvz',
   productName: 'hfvz',
-  version: '0.1.0',
+  version: '0.1.1',
   macOSCodeSigning: false,
   windowsEVCodeSigning: false,
   fallbackToIndexHtml: true,

@@ -1,4 +1,4 @@
-# Holochain-Kangaroo Electron
+# hfvz electron
 
 Put your Holochain App in this Kangaroo's electron pouch and let it run.
 
