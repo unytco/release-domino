@@ -1,6 +1,6 @@
 {
   "name": "co.unyt.hfvz",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "license": "CAL-1.0",
   "main": "./out/main/index.js",
   "scripts": {
