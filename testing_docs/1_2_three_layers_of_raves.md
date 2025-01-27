@@ -1,5 +1,8 @@
 # The Three Layers of RAVEs
 
+[![hackmd-github-sync-badge](https://hackmd.io/UValSJqhRA-7PQStI3_Nvg/badge)](https://hackmd.io/UValSJqhRA-7PQStI3_Nvg)
+
+
 **Context:** RAVEs are akin to Blockchain Smart Contracts, but implemented in an agent-centric Holochain approach. Any system which implements Raves will include these three layers for proper usage. 
 
 ## 1. Code Template
