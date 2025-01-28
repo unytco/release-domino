@@ -1,11 +1,12 @@
 # HFvZ Setup
 
 #### links to related docs
+
 [Test Plan](./testing_docs/1__testing_plan.md)
-[HFvZ Setup](https://hackmd.io/sTH9kh57Qwu32ceYkkH-YQ)
-[Phase 1 Testing Details](https://hackmd.io/-SoiQbJ-SqGOGm_U0tzQSw)
-[Intro to RAVEs (Three Layers)](https://hackmd.io/UValSJqhRA-7PQStI3_Nvg?view)
-[Sample Code for Creating RAVEs](https://github.com/unytco/hfvz/tree/develop/docs/rave_templates)
+[HFvZ Setup](./README.md)
+[Phase 1 Testing Details](./testing_docs/1_phase_testing_details.md)
+[Intro to RAVEs (Three Layers)](./testing_docs/1_2_three_layers_of_raves.md)
+[Sample Code for Creating RAVEs](./testing_docs/rave_templates)
 [Feedback](https://github.com/orgs/unytco/projects/5/views/1)
 
 ### Intro
