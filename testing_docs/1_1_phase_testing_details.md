@@ -10,31 +10,6 @@
 - [Feedback](https://github.com/orgs/unytco/projects/5/views/1)
 
 
-# Intro
-HFvZ is a Holochain based application for creating agent-centric, peer-to-peer, Mutual Credit accounting systems with smart contract like functionality.
-
-We are working with potential partner projects like yours as we build out this software to ensure that it meets the needs of your team as well as your community of users.
-
-### Overview
-This [Test Plan Phase 1](https://hackmd.io/blgzLSsQTeOMLcmXcfkU0A?edit) document gives a bit of a overview of the sorts of UX / UI feedback that we are seeking at present.
-
-### Installation
-To start, [download and install HFvZ](https://hackmd.io/sTH9kh57Qwu32ceYkkH-YQ).
-
-### Orientation
-During Phase 1, all testers will be joining a single peer network and will be able to send and receive transactions from anyone else in the test network.
-
-For this Phase of testing, you will not need to create a password to log in to your copy of the HFvZ. If you lose your device or delete the software (and your private key), you will lose the ability act as that agent (including the ability to control any test currency that has been sent to you account).
-
-Clicking on your identicon (on the right side) will copy your public key to the clipboard. You can then share that with others through whatever medium you have available. 
-
-They will enter it on their own copy of HFvZ when doing things like sending you an invoice (a request for payment) or a promise (a sending of payment) or when choosing you to serve as the executor of a RAVE.
-
-To get started, you will want to install the software on two or three devices.
-
-Testers can share their public keys with others in the test network here:
-TODO
-
 ### Transactions
 We have two main categories of transactions:
 1) Direct Mutual Credit Transactions
