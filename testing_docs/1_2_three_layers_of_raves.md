@@ -1,9 +1,21 @@
-# The Three Layers of RAVEs
+# Intro to RAVEs (Three Layers)
 
-[![hackmd-github-sync-badge](https://hackmd.io/UValSJqhRA-7PQStI3_Nvg/badge)](https://hackmd.io/UValSJqhRA-7PQStI3_Nvg)
+#### links to related docs
+
+- [Test Plan](./testing_docs/1__testing_plan.md)
+- [HFvZ Setup](./README.md)
+- [Phase 1 Testing Details](./testing_docs/1_phase_testing_details.md)
+- [Intro to RAVEs (Three Layers)](./testing_docs/1_2_three_layers_of_raves.md)
+- [Sample Code for Creating RAVEs](./testing_docs/rave_templates)
+- [Feedback](https://github.com/orgs/unytco/projects/5/views/1)
 
 
 **Context:** RAVEs are akin to Blockchain Smart Contracts, but implemented in an agent-centric Holochain approach. Any system which implements Raves will include these three layers for proper usage. 
+
+```mermaid 
+  graph TD;
+     Code_Template --> Executable_Agreement --> RAVE;
+```
 
 ## 1. Code Template
 Publishing Code Templates allows the logic built into Raves to be reused by different people at different times instead of only used once. 
