@@ -183,7 +183,7 @@ See guide of code template with code examples for different sections
         * Fixed 
             * (if you use Fixed, assign pubkey now)
         * Query 
-            * (Query allows you to add a query to the [HDK](https://docs.rs/hdk/latest/hdk/), 80% of the time this will be a get-links call. See this [example code template].(https://github.com/unytco/hfvz/blob/develop/docs/rave_templates/test_query_rave_template.md))
+            * (Query allows you to add a query to the [HDK](https://docs.rs/hdk/latest/hdk/), 80% of the time this will be a get-links call. See this [example code template](https://github.com/unytco/hfvz-releases/blob/develop/testing_docs/rave_templates/test_query_rave_template.md))
     * Claiming_Agent_Pub_Key
       * Select one
         * FromParkedInvoice
