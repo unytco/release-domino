@@ -2,12 +2,13 @@
 
 #### links to related docs
 
-- [Test Plan](./testing_docs/1__testing_plan.md)
-- [HFvZ Setup](./README.md)
-- [Phase 1 Testing Details](./testing_docs/1_phase_testing_details.md)
-- [Intro to RAVEs (Three Layers)](./testing_docs/1_2_three_layers_of_raves.md)
+- [Test Plan](./1_0_testing_plan.md)
+- [HFvZ Setup](../README.md)
+- [Phase 1 Testing Details](./1_1_phase_testing_details.md)
+- [Intro to RAVEs (Three Layers)](./1_2_three_layers_of_raves.md)
 - [Sample Code for Creating RAVEs](./testing_docs/rave_templates)
 - [Feedback](https://github.com/orgs/unytco/projects/5/views/1)
+
 
 
 **Context:** RAVEs are akin to Blockchain Smart Contracts, but implemented in an agent-centric Holochain approach. Any system which implements Raves will include these three layers for proper usage. 
@@ -46,7 +47,8 @@ When an executor runs an agreement, they commit a record of its execution which 
 **Input Sources:** The inputs came from the places defined in the Executable Agreement (e.g. links were parked on the correct base for queries, consumable links were not already consumed by prior executions.)
 
 **Output Signature:** The structure of the outputs is validated against the JSON schema for the outputs.
-Output Values: 
+
+**Output Values:** The output values must be structured according to the output schema and are a result of the inputs computed. Anyone executing that code with the same inputs should arrive at the same outputs. 
 
 **Matching Inputs & Outputs:** The number of units included as inputs, must match the total number of units in the outputs. Like the first law of thermodynamics, RAVEs must not create or destroy units.
 
