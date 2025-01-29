@@ -6,7 +6,7 @@
 - [HFvZ Setup](../README.md)
 - [Phase 1 Testing Details](./1_1_phase_testing_details.md)
 - [Intro to RAVEs (Three Layers)](./1_2_three_layers_of_raves.md)
-- [Sample Code for Creating RAVEs](./testing_docs/rave_templates)
+- [Sample Code for Creating RAVEs](./rave_templates)
 - [Feedback](https://github.com/orgs/unytco/projects/5/views/1)
 
 
