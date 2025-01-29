@@ -58,9 +58,9 @@ Clicking on your identicon (on the right side) will copy your public key to the 
 
 They will enter it on their own copy of HFvZ when doing things like sending you an invoice (a request for payment) or a promise (a sending of payment) or when choosing you to serve as the executor of a RAVE.
 
-To get started, you will want to install the software on two or three devices.
+To get started, you will want to install the software on a couple of devices so you can try sending, executing, and receiving transactions. 
 
-Next, dive into the [testing docs](https://github.com/unytco/hfvz-releases/tree/develop/testing_docs).
+Next, dive into the [Test Plan](./testing_docs/1_0_testing_plan.md).
 
 
 
