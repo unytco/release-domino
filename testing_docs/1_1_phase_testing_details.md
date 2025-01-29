@@ -10,7 +10,6 @@
 - [Feedback](https://github.com/orgs/unytco/projects/5/views/1)
 
 
-
 ### Transactions
 In HFvZ, there are two main categories of transactions:
 1) Direct Mutual Credit Transactions
@@ -19,7 +18,7 @@ In HFvZ, there are two main categories of transactions:
 ### Overview of Transaction Types
 **Direct Mutual Credit Transactions** involve the sending of credits from one agent directly to another agent. They involve changes to the source chain history of the spender and the receiver. A selection of other agents independently validate each step in this process.
 
-**RAVE (Recorded Agreement of Verifiable Execution) Transactions** are similar to blockchain based smart contracts, but are designed to make use of Holochain's agent centric architechture. They involve changes to the source chain history of a spender, an executor, and a receiver. A selection of other agents independently validate each step in this process. RAVE transactions allow more complicated logic to be made use of in structuring transactions and the conditions under which those transactions will be processed.
+**RAVE (Recorded Agreement of Verifiable Execution) Transactions** are similar to blockchain based smart contracts, but are designed to make use of Holochain's agent centric architecture. They involve the verifiable execution of an agreement by an executor. RAVEs  changes to the source chain history of a spender, an executor, and a receiver. A selection of other agents independently validate each step in this process. RAVE transactions allow more complicated logic to be made use of in structuring transactions and the conditions under which those transactions will be processed.
 
 #### Direct Mutual Credit Transactions
 A Process Overview
@@ -168,3 +167,79 @@ Who: Any member of your community in good standing.
 
 
 
+
+### RAVEs
+#### About RAVEs
+RAVEs, or Recorded Agreements of Verifiable Execution are similar to Blockchain based Smart Contracts, but are designed to enable automated agreement execution in agent-based Holochain applications.
+
+Like computer programs more generally, a RAVE can be created to automate the execution of a wide range of activities. 
+
+A RAVE is executed by an Executor. Select other agents in the network validate that the execution was done properly and are relied upon by other agents for their assessment of validity. However, any other agent can independently validate that the execution was done properly. The Executor must satisfy whatever criteria is spelled out in the RAVE, and in the Executable Agreement that it is an instance of, whether that requires a specific agent to serve as Executor, requires the agent to have a particular role, or enables any agent to have been selected as Executor.
+
+#### Using one of the existing Executable Agreements
+
+*UI Bug note: In the RAVE Templates tab, clicking on an existing Code Template row will show Executable Agreements that have already been created using that code template.*
+
+
+There are a couple of RAVEs that have been set up already:
+1) __system_credit_limit_computation
+ 
+2) conditional_forward
+
+System_credit_limit_computation is a system wide RAVE that sets initial credit limits for different agents:
+    - a credit limit of 10,000 for an infrastructure agent
+    - a credit limit of 100 for all other agents
+    
+The conditional_forward enables as spender to park credits on that RAVE. In this simple version, there is no way for those credits to be returned to the spender. 
+
+The Executor has the ability to 
+a) execute the transaction and release the funds for the Receiver to Accept, or 
+b) not execute the transaction (presumably because some condition has not yet been met). 
+
+A more sophisticated conditional forward could have logic for returning the credits to the spender and possibly other input sources, for instance data from a pre-determined oracle indicating that the condition has in fact been met.
+
+#### Create a RAVE using an Executable Agreement
+
+Feel free to play around with the conditional_forward RAVE. You can 
+
+#### Create an Executable Agreement from a Code Template
+
+Under RAVE Library > Code Templates Library, click on the row for conditional_forward to see the Executable Agreement(s) that have been created from that template. Pick one and initialize a transaction using the agents and amounts of your choice.
+
+#### Create a Code Template
+We also have included the code for creating a couple of additional Code Templates. 
+
+You can find these in the [RAVE Templates](./rave_templates) folder.
+
+You can get started by clicking Create Code Template on the RAVE Library page.
+
+And if you feel like writing a custom one, go ahead and take a swipe at it.* 
+
+**Note that since this is a single shared testing environment, all RAVEs and Executable Agreements will be visible to all other testers.*
+
+Once you have created a Code Template, you can use that Code Template to create an Executable Agreement by clicking Create Agreement.
+
+Once you have created an Executable Agreement, click Initialize to start creating a RAVE that conforms to that Agreement.
+
+[Intro to RAVEs ](./1_2_three_layers_of_raves.md) has a decent overview.
+
+
+### Components of Code Template 
+* Template Title
+* Input Signature (JSON Schema)
+* Execution Code
+* Output Signature (JSON Schema)
+
+### Create Executable Agreement
+When creating an Executable Agreement, there are a few ways in which a particular bit of data can get specified, such as the amount of the transaction, or which agent will be the spender.
+
+* RAVEFixed
+    * A fixed input (used in RAVEs)
+* ExecutorProvided
+    * Provided by the Executor
+* Fixed
+    * A fixed input (used in Direct Transactions)
+* Query 
+    * Allows you to query the [HDK](https://docs.rs/hdk/latest/hdk/), 80% of the time this will be a get_links call. See this [example code template](https://github.com/unytco/hfvz-releases/blob/develop/testing_docs/rave_templates/test_query_rave_template.md)). Or [learn more about links and get_links](https://developer.holochain.org/build/links-paths-and-anchors/).
+
+If you have any thoughts, questions or criticisms, please feel free to add items to our [feedback board](https://github.com/orgs/unytco/projects/5/views/1), and don't hesitate to reach out to our team.
