@@ -52,7 +52,7 @@ When an executor runs an agreement, they commit a record of its execution which 
 
 **Matching Inputs & Outputs:** The number of units included as inputs, must match the total number of units in the outputs. Like the first law of thermodynamics, RAVEs must not create or destroy units.
 
-
+Next, if you haven't already, check out the [Phase 1 Testing Details](./1_1_phase_testing_details.md)
 
 
 
