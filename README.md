@@ -15,7 +15,7 @@ HFvZ is a Holochain based application for creating agent-centric, peer-to-peer, 
 We are working with potential partner projects like yours as we build out this software to ensure that it meets the needs of your team as well as your community of users.
 
 ### Overview
-This [Test Plan Phase 1](https://hackmd.io/blgzLSsQTeOMLcmXcfkU0A?edit) document gives a bit of a overview of the sorts of UX / UI feedback that we are seeking at present.
+This [Test Plan](./testing_docs/1_0_testing_plan.md) document gives a bit of a overview of the sorts of UX / UI feedback that we are seeking at present.
 
 ### Installation
 
