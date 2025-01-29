@@ -1,10 +1,10 @@
-# _conditional_forward
+# conditional_forward
 
 # Create Code Template
 
 ## Template Name
 ```
-__conditional_forward
+conditional_forward
 ```
 
 ## Input Signature
