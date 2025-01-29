@@ -40,3 +40,5 @@ Test usability of the full range of basic transactional functionality
 
 ### 3. Feedback
 We have set up this [feedback board](https://github.com/orgs/unytco/projects/5) for adding and tracking bugs, feature requests and other feedback.
+
+If you haven't already, check out [Intro to RAVEs (Three Layers)](./1_2_three_layers_of_raves.md)
