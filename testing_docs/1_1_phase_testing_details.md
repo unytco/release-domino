@@ -9,7 +9,6 @@
 - [Sample Code for Creating RAVEs](./rave_templates)
 - [Feedback](https://github.com/orgs/unytco/projects/5/views/1)
 
-
 ### Transactions
 In HFvZ, there are two main categories of transactions:
 1) Direct Mutual Credit Transactions
@@ -190,21 +189,23 @@ System_credit_limit_computation is a system wide RAVE that sets initial credit l
     - a credit limit of 10,000 for an infrastructure agent
     - a credit limit of 100 for all other agents
     
-The conditional_forward enables as spender to park credits on that RAVE. In this simple version, there is no way for those credits to be returned to the spender. 
+The conditional_forward enables as spender to park credits on that RAVE. In this simple version, there is no way for those credits to be returned to the spender. However, the credits are also not in the custody of the Executor. 
 
 The Executor has the ability to 
 a) execute the transaction and release the funds for the Receiver to Accept, or 
-b) not execute the transaction (presumably because some condition has not yet been met). 
+b) not execute the transaction (presumably because some condition has not yet been met). This keeps the credits in limbo.
 
-A more sophisticated conditional forward could have logic for returning the credits to the spender and possibly other input sources, for instance data from a pre-determined oracle indicating that the condition has in fact been met.
+A more sophisticated conditional forward could have logic for returning the credits to the spender and possibly other input sources, for instance data from a pre-determined oracle indicating that some specific condition has in fact been met.
 
 #### Create a RAVE using an Executable Agreement
 
-Feel free to play around with the conditional_forward RAVE. You can 
+Feel free to initalize a conditional_forward RAVE. 
+
+Under RAVE Library > Code Templates Library, click on the row for conditional_forward to see the Executable Agreement(s) that have been created from that template. Pick one and click Initialize to begin structuring a transaction using the agents and amounts of your choice.
 
 #### Create an Executable Agreement from a Code Template
+If you haven't already, you can create you own Executable Agreement from one of the Code Templates. Maybe create an alternate version of the conditional_forward.
 
-Under RAVE Library > Code Templates Library, click on the row for conditional_forward to see the Executable Agreement(s) that have been created from that template. Pick one and initialize a transaction using the agents and amounts of your choice.
 
 #### Create a Code Template
 We also have included the code for creating a couple of additional Code Templates. 
@@ -217,18 +218,17 @@ And if you feel like writing a custom one, go ahead and take a swipe at it.*
 
 **Note that since this is a single shared testing environment, all RAVEs and Executable Agreements will be visible to all other testers.*
 
-Once you have created a Code Template, you can use that Code Template to create an Executable Agreement by clicking Create Agreement.
-
-Once you have created an Executable Agreement, click Initialize to start creating a RAVE that conforms to that Agreement.
-
-[Intro to RAVEs ](./1_2_three_layers_of_raves.md) has a decent overview.
+For a reminder on this layered structure [Intro to RAVEs (Three Layers)](./1_2_three_layers_of_raves.md) has a decent overview.
 
 
 ### Components of Code Template 
+Each code template has just a few components:
 * Template Title
 * Input Signature (JSON Schema)
 * Execution Code
 * Output Signature (JSON Schema)
+
+Once you have created a Code Template, you can use that Code Template to create an Executable Agreement by clicking Create Agreement.
 
 ### Create Executable Agreement
 When creating an Executable Agreement, there are a few ways in which a particular bit of data can get specified, such as the amount of the transaction, or which agent will be the spender.
@@ -241,5 +241,7 @@ When creating an Executable Agreement, there are a few ways in which a particula
     * A fixed input (used in Direct Transactions)
 * Query 
     * Allows you to query the [HDK](https://docs.rs/hdk/latest/hdk/), 80% of the time this will be a get_links call. See this [example code template](https://github.com/unytco/hfvz-releases/blob/develop/testing_docs/rave_templates/test_query_rave_template.md)). Or [learn more about links and get_links](https://developer.holochain.org/build/links-paths-and-anchors/).
+
+Once you have created an Executable Agreement, click Initialize to start creating a RAVE that conforms to that Agreement. Once initialized, the agents listed in the agreement will get notified that they have Actionable Transactions when it is their turn to take some action. (again, this may require a reload to show up.)
 
 If you have any thoughts, questions or criticisms, please feel free to add items to our [feedback board](https://github.com/orgs/unytco/projects/5/views/1), and don't hesitate to reach out to our team.
