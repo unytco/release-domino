@@ -2,10 +2,10 @@
 
 #### links to related docs
 
-- [Test Plan](./testing_docs/1_0_testing_plan.md)
-- [HFvZ Setup](./README.md)
-- [Phase 1 Testing Details](./testing_docs/1_1_phase_testing_details.md)
-- [Intro to RAVEs (Three Layers)](./testing_docs/1_2_three_layers_of_raves.md)
+- [Test Plan](./1_0_testing_plan.md)
+- [HFvZ Setup](././README.md)
+- [Phase 1 Testing Details](./1_1_phase_testing_details.md)
+- [Intro to RAVEs (Three Layers)](./1_2_three_layers_of_raves.md)
 - [Sample Code for Creating RAVEs](./testing_docs/rave_templates)
 - [Feedback](https://github.com/orgs/unytco/projects/5/views/1)
 
