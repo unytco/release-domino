@@ -31,9 +31,12 @@ Download the appropriate version for your system.
 
 Mac Intel (no release available)
 
-All of those can be found in in the 
-[Releases](
-https://github.com/unytco/hfvz-releases/releases) section of this [hfvz-releases repo](https://github.com/unytco/hfvz-releases/)
+Android (no release available)
+
+iOS (no release available)
+
+All available versions can be found in the [Releases](
+https://github.com/unytco/hfvz-releases/releases)
 
 
 ### Setup
