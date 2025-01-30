@@ -33,30 +33,13 @@ Mac Intel (no release available)
 
 All of those can be found in in the 
 [Releases](
-https://github.com/unytco/hfvz-releases/releases) section of the [Github Repo for HFvZ](https://github.com/unytco/hfvz-releases/)
+https://github.com/unytco/hfvz-releases/releases) section of this [hfvz-releases repo](https://github.com/unytco/hfvz-releases/)
 
 
 ### Setup
 Note: The release for your operating system may not be code signed yet, so you may need to right click to open the file.
 
 When you open HFvZ on your operating system for the first time, it will create a set of public and private keys for you that you can use to interact with others. These are stored in a private keystore (Lair) on your own machine and are used during future uses. 
-
-
-
-### Orientation
-HFvZ is software that runs locally on your computer and connects with other instances to form a peer-to-peer network.
-
-During Phase 1, all testers will be joining a single peer network and will be able to send and receive transactions from anyone else in the test network.
-
-For this Phase of testing, you will not need to create a password to log in to your copy of the HFvZ. If you lose your device or delete the software (and your private key), you will lose the ability act as that agent (including the ability to control any test currency that has been sent to you account). (Local) Password login is a feature that we can incorporate in a later release.
-
-Once you have opened HFvZ, you can test out different types of transactions. To start with, in this version, each agent will have a credit limit of 100 units.
-
-All of you will be using the software as a super user with the ability to not only engage in transactions, but to create new RAVEs (smart contract like functionality). Any Code Template, Executable Agreement or RAVE that you create will be visible to other users. 
-
-Clicking on your identicon (on the right side) will copy your public key to the clipboard. You can then share that with others through whatever other medium you have available. 
-
-They will enter it on their own copy of HFvZ when doing things like sending you an invoice (a request for payment) or a promise (a sending of payment) or when choosing you to serve as the executor of a RAVE.
 
 To get started, you will want to install the software on a couple of devices so you can try sending, executing, and receiving transactions. 
 
