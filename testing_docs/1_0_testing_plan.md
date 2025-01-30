@@ -37,6 +37,7 @@ Test usability of the full range of basic transactional functionality
 - [ ] send/receive via RAVEs, including credit limit enforcement and deduction of transaction fees
 - [ ] Use conditional logic RAVEs (e.g. conditional forward / non-custodial escrow)
 
+At present we expect to have a total of four phases of testing, each lasting about 2-3 weeks.
 
 ### 3. Feedback
 We have set up this [feedback board](https://github.com/orgs/unytco/projects/5) for adding and tracking bugs, feature requests and other feedback.
