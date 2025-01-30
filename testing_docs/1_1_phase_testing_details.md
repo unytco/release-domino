@@ -9,6 +9,10 @@
 - [Sample Code for Creating RAVEs](./rave_templates)
 - [Feedback](https://github.com/orgs/unytco/projects/5/views/1)
 
+**WARNING: This doc contains details!** 
+
+Feel free to use the outline view available in the upper right to get an overview of the different content covered.
+
 ### Phase 1 Testing Orientation
 
 HFvZ is software that runs locally on your computer and connects with other instances to form a peer-to-peer network.
@@ -263,7 +267,7 @@ And if you feel like writing a custom one, go ahead and take a swipe at it.*
 For a reminder on this layered structure [Intro to RAVEs (Three Layers)](./1_2_three_layers_of_raves.md) has a decent overview.
 
 
-### Components of a Code Template 
+#### Components of a Code Template 
 Each code template has a few components:
 * Template Title
 * Input Signature (JSON Schema)
@@ -272,7 +276,7 @@ Each code template has a few components:
 
 Once you have created a Code Template, you can use that Code Template to create an Executable Agreement by clicking Create Agreement.
 
-### Create Executable Agreement
+#### Create Executable Agreement
 When creating an Executable Agreement, there are a few ways in which a particular bit of data can get input, such as the amount of the transaction, or which agent will be the spender.
 
 * RAVEFixed
