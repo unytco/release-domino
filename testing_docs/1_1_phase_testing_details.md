@@ -9,6 +9,46 @@
 - [Sample Code for Creating RAVEs](./rave_templates)
 - [Feedback](https://github.com/orgs/unytco/projects/5/views/1)
 
+### Phase 1 Testing Orientation
+
+HFvZ is software that runs locally on your computer and connects with other instances to form a peer-to-peer network.
+
+In the future, there will likely be many different networks running their own version of this software for their community.
+
+During Phase 1 Testing, however, all testers will be joining a single peer network and will be able to send and receive transactions from anyone else in the test network.
+
+
+For this Phase of testing, you will not need to create a password to log in to your copy of the HFvZ. If you lose your device or delete the software (and your private key), you will lose the ability act as that agent (including the ability to control any test currency that has been sent to you account). (Local) Password login is a feature that we can incorporate in a later release.
+
+Once you have opened HFvZ, you can test out different types of transactions. To start with, in this version, each agent will have a credit limit of 100 units.
+
+All of you will be using the software as a super user with the ability to not only engage in transactions, but to create new RAVEs (smart contract like functionality). Any Code Template, Executable Agreement or RAVE that you create will be visible to other users. 
+
+Clicking on your identicon (on the right side) will copy your public key to the clipboard. You can then share that with others through whatever other medium you have available. 
+
+They will enter it on their own copy of HFvZ when doing things like sending you an invoice (a request for payment) or a promise (a sending of payment) or when choosing you to serve as the executor of a RAVE.
+
+Note that this version of HFvZ doesn't yet have push notifications set up. So for the time being, you may need to hit reload in order to see that someone has sent you a transaction to Pay or Execute or Accept.
+
+If nobody else on your team is a available to test alongside you yet, feel free to try out some transactions with some of our team. 
+
+Matt's public key is:
+
+```
+uhCAk6pXOgrY4sP8-VEzkGKb3NpiKyLSJwmZktYrTrwnqC1OPM0Po
+```
+
+Jarod's public key is:
+```
+uhCAk13kC865NTyZvRfRwLoyfucZpCCZkc3My8qwNXvBuXUYIiPRm
+```
+ 
+And feel free to reach out to use through our shared comms channel on Telegram or Signal. 
+ 
+We are more than happy to jump on a video conference call to play alongside you for a bit.
+ 
+On to the details!
+
 ### Transactions
 In HFvZ, there are two main categories of transactions:
 1) Direct Mutual Credit Transactions
@@ -92,7 +132,7 @@ A step-by-step walk through.
 The below Direct Transactions will only work if the sender has available credit in their account. For testing with HFvZ 0.2.0. we have set it up so that any new agent starts with a credit limit of 100. 
 
 
-### Send direct transactions via Promise
+#### Send direct transactions via Promise
 
 Who: Any member of your community in good standing with available credit in their account.
 
@@ -112,7 +152,7 @@ Who: Any member of your community in good standing with available credit in thei
 
 
 
-### Receive direct transaction via Promise
+#### Receive direct transaction via Promise
 
 Who: any member of your community in good standing.
 
@@ -126,7 +166,7 @@ In Agent UI for Receiver, go to Transactions > Actionable Transactions
 
 
 
-### Request direct transaction via Invoice
+#### Request direct transaction via Invoice
 Who: Any member of your community in good standing
 
 * Transaction Type
@@ -143,7 +183,7 @@ Who: Any member of your community in good standing
 
 
 
-### Pay an Invoice
+#### Pay an Invoice
 Who: any member of your community in good standing with adequate credit available.
     * After an invoice has been sent to you, go to the Actionable Transactions section of your agent’s UI. 
     * Find the invoice
@@ -155,7 +195,7 @@ Who: any member of your community in good standing with adequate credit availabl
 
 
 
-### Receive Payment of an Invoice
+#### Receive Payment of an Invoice
 Who: Any member of your community in good standing.
 
 * After reloading, the Receiving Agent will find the transaction in the Actionable Transactions section of their Agent UI
@@ -175,7 +215,7 @@ Like computer programs more generally, a RAVE can be created to automate the exe
 
 A RAVE is executed by an Executor. Select other agents in the network validate that the execution was done properly and are relied upon by other agents for their assessment of validity. However, any other agent can independently validate that the execution was done properly. The Executor must satisfy whatever criteria is spelled out in the RAVE, and in the Executable Agreement that it is an instance of, whether that requires a specific agent to serve as Executor, requires the agent to have a particular role, or enables any agent to have been selected as Executor.
 
-#### Using one of the existing Executable Agreements
+#### The existing Executable Agreements
 
 *UI Bug note: In the RAVE Templates tab, clicking on an existing Code Template row will show Executable Agreements that have already been created using that code template.*
 
@@ -192,8 +232,10 @@ System_credit_limit_computation is a system wide RAVE that sets initial credit l
 The conditional_forward enables as spender to park credits on that RAVE. In this simple version, there is no way for those credits to be returned to the spender. However, the credits are also not in the custody of the Executor. 
 
 The Executor has the ability to 
+
 a) execute the transaction and release the funds for the Receiver to Accept, or 
-b) not execute the transaction (presumably because some condition has not yet been met). This keeps the credits in limbo.
+
+b) not execute the transaction (presumably because some condition has not yet been met). This keeps the credits in limbo. The executor does not have an ability to use them or direct them elsewhere.
 
 A more sophisticated conditional forward could have logic for returning the credits to the spender and possibly other input sources, for instance data from a pre-determined oracle indicating that some specific condition has in fact been met.
 
@@ -204,7 +246,7 @@ Feel free to initalize a conditional_forward RAVE.
 Under RAVE Library > Code Templates Library, click on the row for conditional_forward to see the Executable Agreement(s) that have been created from that template. Pick one and click Initialize to begin structuring a transaction using the agents and amounts of your choice.
 
 #### Create an Executable Agreement from a Code Template
-If you haven't already, you can create you own Executable Agreement from one of the Code Templates. Maybe create an alternate version of the conditional_forward.
+If you haven't already, you can create you own Executable Agreement from one of the Code Templates. Maybe create an alternate version of the conditional_forward. (it's pretty minimal). 
 
 
 #### Create a Code Template
@@ -221,8 +263,8 @@ And if you feel like writing a custom one, go ahead and take a swipe at it.*
 For a reminder on this layered structure [Intro to RAVEs (Three Layers)](./1_2_three_layers_of_raves.md) has a decent overview.
 
 
-### Components of Code Template 
-Each code template has just a few components:
+### Components of a Code Template 
+Each code template has a few components:
 * Template Title
 * Input Signature (JSON Schema)
 * Execution Code
@@ -231,7 +273,7 @@ Each code template has just a few components:
 Once you have created a Code Template, you can use that Code Template to create an Executable Agreement by clicking Create Agreement.
 
 ### Create Executable Agreement
-When creating an Executable Agreement, there are a few ways in which a particular bit of data can get specified, such as the amount of the transaction, or which agent will be the spender.
+When creating an Executable Agreement, there are a few ways in which a particular bit of data can get input, such as the amount of the transaction, or which agent will be the spender.
 
 * RAVEFixed
     * A fixed input (used in RAVEs)
