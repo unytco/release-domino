@@ -40,6 +40,6 @@ Test usability of the full range of basic transactional functionality
 At present we expect to have a total of four phases of testing, each lasting about 2-3 weeks.
 
 ### 3. Feedback
-We have set up this [feedback board](https://github.com/orgs/unytco/projects/5) for adding and tracking bugs, feature requests and other feedback.
+We have set up this [feedback board](https://github.com/orgs/unytco/projects/5) for adding and tracking bugs, feature requests and other feedback. If you haven't yet done so, please share your github handle with us via our shared Telegram or Signal thread so that you can have access to that board.
 
 If you haven't already, check out [Intro to RAVEs (Three Layers)](./1_2_three_layers_of_raves.md)
