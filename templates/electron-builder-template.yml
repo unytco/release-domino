@@ -1,5 +1,6 @@
 appId: ____PLACEHOLDER____
 productName: ____PLACEHOLDER____
+copyright: 'Copyright © 2025 unyt.co'
 directories:
   buildResources: build
 files:
@@ -10,6 +11,7 @@ asarUnpack:
   - resources/**
 win:
   executableName: ____PLACEHOLDER____
+  publisherName: unyt.co
 nsis:
   artifactName: ${name}-${version}-setup.${ext}
   shortcutName: ${productName}
@@ -27,17 +29,32 @@ mac:
 dmg:
   artifactName: ${name}-${version}.${ext}
 linux:
+  appId: 'co.unyt.hfvz'
   target:
     - AppImage
     - deb
     # - snap
-  maintainer: electronjs.org
-  category: Utility
-  packageName: ${productName} # WARN: added by zo-el on 2025-01-31
+  maintainer: unyt.co
+  category: Accounting
+  vendor: unyt.co
+  synopsis: 'Mutual Credit Accounting System'
+  desktop:
+    Name: hfvz
+    Comment: Mutual Credit Accounting System
+    Categories: Accounting
+    MimeType: x-scheme-handler/hfvz
 appImage:
   artifactName: ${name}-${version}.${ext}
-  sandbox: true # WARN: added by zo-el on 2025-01-31
-  systemIntegration: 'doNotAsk' # WARN: added by zo-el on 2025-01-31
+  # executableArgs:
+  #   - --no-sandbox
+  #   - --appimage-extract-and-run
+deb:
+  description: Mutual Credit Accounting System
+  desktop:
+    Name: hfvz
+    Comment: Mutual Credit Accounting System
+    Categories: Accounting
+  packageName: hfvz
 npmRebuild: false
 # publish:
 #   provider: generic
