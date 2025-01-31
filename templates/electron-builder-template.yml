@@ -45,9 +45,9 @@ linux:
     MimeType: x-scheme-handler/hfvz
 appImage:
   artifactName: ${name}-${version}.${ext}
-  # executableArgs:
-  #   - --no-sandbox
-  #   - --appimage-extract-and-run
+  executableArgs:
+    - --no-sandbox
+    - --appimage-extract-and-run
 deb:
   description: Mutual Credit Accounting System
   desktop:
