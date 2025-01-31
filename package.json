@@ -4,6 +4,7 @@
   "license": "CAL-1.0",
   "main": "./out/main/index.js",
   "author": "zo-el <joelulahanna@gmail.com>",
+  "description": "Mutual credit accounting",
   "scripts": {
     "dev": "yarn write:configs && yarn pouch:unpack && yarn create:icons && electron-vite dev",
     "setup": "yarn && yarn fetch:binaries",
