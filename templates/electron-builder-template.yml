@@ -11,7 +11,6 @@ asarUnpack:
   - resources/**
 win:
   executableName: ____PLACEHOLDER____
-  publisherName: unyt.co
 nsis:
   artifactName: ${name}-${version}-setup.${ext}
   shortcutName: ${productName}
@@ -42,12 +41,8 @@ linux:
     Name: hfvz
     Comment: Mutual Credit Accounting System
     Categories: Accounting
-    MimeType: x-scheme-handler/hfvz
 appImage:
   artifactName: ${name}-${version}.${ext}
-  executableArgs:
-    - --no-sandbox
-    - --appimage-extract-and-run
 deb:
   description: Mutual Credit Accounting System
   desktop:
