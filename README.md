@@ -27,11 +27,13 @@ Download the appropriate version for your system.
 
 | Releases    | 
 | --------    | 
-|    [Windows](https://github.com/unytco/hfvz-releases/releases/download/v0.3.0/co.unyt.hfvz-0.3.0-setup.exe)    | 
-|    [Linux Debian](https://github.com/unytco/hfvz-releases/releases/download/v0.3.0/co.unyt.hfvz_0.3.0_amd64.deb)  (recomended)  | 
-|    [Linux AppImage](https://github.com/unytco/hfvz-releases/releases/download/v0.3.0/co.unyt.hfvz-0.3.0.AppImage)   (read note below) | 
-|    [macOS Silicon arm64 (M1/M2/M3/M4)](https://github.com/unytco/hfvz-releases/releases/download/v0.3.0/co.unyt.hfvz-0.3.0-arm64.dmg)    |
-|    [macOS Intel x64](https://github.com/unytco/hfvz-releases/releases/download/v0.3.0/co.unyt.hfvz-0.3.0-x64.dmg)  |
+|    [Windows](https://github.com/unytco/hfvz-releases/releases/download/v0.4.0/co.unyt.hfvz-0.4.0-setup.exe)    | 
+|    [Linux Debian](https://github.com/unytco/hfvz-releases/releases/download/v0.4.0/co.unyt.hfvz_0.4.0_amd64.deb)  (recomended)  | 
+|    [Linux AppImage](https://github.com/unytco/hfvz-releases/releases/download/v0.4.0/co.unyt.hfvz-0.4.0.AppImage)   (read note below) | 
+|    [macOS-13 Silicon arm64 (M1/M2/M3/M4)](https://github.com/unytco/hfvz-releases/releases/download/v0.4.0/co.unyt.hfvz-0.4.0-macos-13-arm64.dmg)    |
+|    [macOS-13 Intel x64](https://github.com/unytco/hfvz-releases/releases/download/v0.4.0/co.unyt.hfvz-0.4.0-macos-13-x64.dmg)  |
+|    [macOS-latest Silicon arm64 (M1/M2/M3/M4)](https://github.com/unytco/hfvz-releases/releases/download/v0.4.0/co.unyt.hfvz-0.4.0-macos-latest-arm64.dmg.blockmap)    |
+|    [macOS-latest Intel x64](https://github.com/unytco/hfvz-releases/releases/download/v0.4.0/co.unyt.hfvz-0.4.0-macos-latest-x64.dmg)  |
 |    [Android]() (no release available)    |
 |    [iOS]() (no release available)    |
 
