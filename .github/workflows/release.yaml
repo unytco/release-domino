@@ -80,7 +80,7 @@ jobs:
       # macOS WITHOUT code signing
       #---------------------------------------------------------------------------------------
       - name: build and upload the app WITHOUT code signing (macOS x86)
-        if: matrix.platform == 'macos-13' && steps.shouldMacOSCodeSign.outputs.MACOS_CODE_SIGNING == 'false'
+        if: steps.shouldMacOSCodeSign.outputs.MACOS_CODE_SIGNING == 'false'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CSC_IDENTITY_AUTO_DISCOVERY: false
@@ -90,7 +90,7 @@ jobs:
           ls dist
 
       - name: build and upload the app WITHOUT code signing (macOS arm64)
-        if: matrix.platform == 'macos-latest' && steps.shouldMacOSCodeSign.outputs.MACOS_CODE_SIGNING == 'false'
+        if: steps.shouldMacOSCodeSign.outputs.MACOS_CODE_SIGNING == 'false'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CSC_IDENTITY_AUTO_DISCOVERY: false
@@ -103,7 +103,7 @@ jobs:
       #---------------------------------------------------------------------------------------
       # Note this issue regarding the if condition: https://github.com/actions/runner/issues/1173
       - name: build and upload the app WITH code signing (macOS x86)
-        if: matrix.platform == 'macos-13' && steps.shouldMacOSCodeSign.outputs.MACOS_CODE_SIGNING == 'true'
+        if: steps.shouldMacOSCodeSign.outputs.MACOS_CODE_SIGNING == 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           APPLE_DEV_IDENTITY: ${{ secrets.APPLE_DEV_IDENTITY }}
@@ -117,7 +117,7 @@ jobs:
           ls dist
 
       - name: build and upload the app WITH code signing (macOS arm64)
-        if: matrix.platform == 'macos-latest' && steps.shouldMacOSCodeSign.outputs.MACOS_CODE_SIGNING == 'true'
+        if: steps.shouldMacOSCodeSign.outputs.MACOS_CODE_SIGNING == 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           APPLE_DEV_IDENTITY: ${{ secrets.APPLE_DEV_IDENTITY }}
