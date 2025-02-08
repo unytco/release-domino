@@ -3,7 +3,7 @@ import { defineConfig } from './src/main/defineConfig';
 export default defineConfig({
   appId: 'co.unyt.hfvz',
   productName: 'hfvz',
-  version: '0.3.0',
+  version: '0.3.1',
   macOSCodeSigning: false,
   windowsEVCodeSigning: false,
   fallbackToIndexHtml: true,
