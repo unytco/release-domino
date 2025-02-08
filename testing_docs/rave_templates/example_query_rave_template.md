@@ -1,11 +1,11 @@
-# conditional_forward
+# example_query_rave_template
 
 # Create Code Template
 
 ## Template Name
 
 ```
-conditional_forward
+example_query_rave_template
 ```
 
 ## Input Signature
@@ -14,6 +14,7 @@ conditional_forward
 {
   "type": "object",
   "properties": {
+    "get_data_for_agent_key": { "type": "any" },
     "unyt_allocation": {
       "type": "array",
       "items": {
@@ -26,7 +27,7 @@ conditional_forward
       }
     }
   },
-  "required": ["unyt_allocation"]
+  "required": ["get_data_for_agent_key", "unyt_allocation"]
 }
 ```
 
@@ -35,6 +36,7 @@ conditional_forward
 ```rhai
 
 return #{
+  "get_data_for_agent_key": get_data_for_agent_key,
   "unyt_allocation": unyt_allocation
 }
 
@@ -52,9 +54,9 @@ return #{
         "type": "object",
         "properties": {
           "amount": { "type": "string" },
-          "agent": { "type": "string" }
+          "receiver": { "type": "string" }
         },
-        "required": ["amount", "agent"]
+        "required": ["amount", "receiver"]
       }
     }
   },
@@ -69,8 +71,29 @@ return #{
 ## Input Rules
 
 ```json
-{
-  "name": "unyt_allocation",
-  "instruction": { "RaveFixed": null }
-}
+[
+  {
+    "name": "get_data_for_agent_key",
+    "instruction": {
+      "Query": {
+        "GetAgentActivity": [
+          "uhCAkdqEGyaphIqtBSW9Bu19Ixxlvj5CwO3mkCmBmF6xZCSwqhPw1",
+          {
+            "sequence_range": "Unbounded",
+            "entry_type": null,
+            "entry_hashes": null,
+            "action_type": null,
+            "include_entries": true,
+            "order_descending": true
+          },
+          { "Full": null }
+        ]
+      }
+    }
+  },
+  {
+    "name": "unyt_allocation",
+    "instruction": { "RaveFixed": null }
+  }
+]
 ```
