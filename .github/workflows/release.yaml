@@ -84,7 +84,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CSC_IDENTITY_AUTO_DISCOVERY: false
-          PLATFORM_ID: {{ matrix.platform }}
+          PLATFORM_ID: ${{ matrix.platform }}
         run: |
           yarn build:mac-x64
           ls dist
@@ -94,7 +94,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CSC_IDENTITY_AUTO_DISCOVERY: false
-          PLATFORM_ID: {{ matrix.platform }}
+          PLATFORM_ID: ${{ matrix.platform }}
         run: |
           yarn build:mac-arm64
           ls dist
@@ -111,7 +111,7 @@ jobs:
           APPLE_ID_PASSWORD: ${{ secrets.APPLE_ID_PASSWORD }}
           APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
           DEBUG: electron-osx-sign*,electron-notarize*
-          PLATFORM_ID: {{ matrix.platform }}
+          PLATFORM_ID: ${{ matrix.platform }}
         run: |
           yarn build:mac-x64
           ls dist
@@ -125,7 +125,7 @@ jobs:
           APPLE_ID_PASSWORD: ${{ secrets.APPLE_ID_PASSWORD }}
           APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
           DEBUG: electron-osx-sign*,electron-notarize*
-          PLATFORM_ID: {{ matrix.platform }}
+          PLATFORM_ID: ${{ matrix.platform }}
         run: |
           yarn build:mac-arm64
           ls dist
