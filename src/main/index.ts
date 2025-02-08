@@ -1,4 +1,16 @@
-import { app, BrowserWindow, dialog, ipcMain, IpcMainInvokeEvent, Menu, protocol } from 'electron';
+import {
+  app,
+  BrowserWindow,
+  dialog,
+  ipcMain,
+  IpcMainInvokeEvent,
+  Menu,
+  nativeImage,
+  protocol,
+  Tray,
+  Notification,
+  Event
+} from 'electron';
 import childProcess from 'child_process';
 import { ZomeCallNapi, ZomeCallSigner, ZomeCallUnsignedNapi } from '@holochain/hc-spin-rust-utils';
 import contextMenu from 'electron-context-menu';
@@ -10,26 +22,19 @@ import {
   randomNonce,
 } from '@holochain/client';
 import { Command } from 'commander';
-import semver from "semver";
+import semver from 'semver';
 
 import { breakingVersion, KangarooFileSystem } from './filesystem';
 import { KangarooEmitter } from './eventEmitter';
 import { setupLogs } from './logs';
 import { HolochainManager } from './holochainManager';
-import { createHappWindow, createSplashWindow } from './windows';
-import {
-  DEFAULT_BOOTSTRAP_SERVER,
-  DEFAULT_SIGNALING_SERVER,
-  HAPP_APP_ID,
-  HOLOCHAIN_BINARY,
-  KANGAROO_CONFIG,
-  LAIR_BINARY,
-  UI_DIRECTORY,
-} from './const';
-import { initializeLairKeystore, launchLairKeystore } from './lairKeystore';
+import { createSplashWindow } from './windows';
+import { KANGAROO_CONFIG, NOTIFICATIONS_ICON_PATH, SYSTRAY_ICON_PATH } from './const';
 import { kangarooMenu } from './menu';
 import { validateArgs } from './cli';
 import { autoUpdater, UpdateCheckResult } from '@matthme/electron-updater';
+import { launch } from './launch';
+import { PasswordType, SplashScreenType } from './types';
 
 // Read CLI options
 
@@ -81,8 +86,6 @@ const RUN_OPTIONS = validateArgs(kangarooCli.opts());
 
 // Read and validate the config file to check that the content does not contain
 // default values
-
-const LAIR_PASSWORD = 'password';
 
 // Check whether lair is initialized or not and if not, decide based on the config
 // file whether or not to show the splashscreen or use a default password
@@ -157,17 +160,139 @@ let LAIR_HANDLE: childProcess.ChildProcessWithoutNullStreams | undefined;
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 let MAIN_WINDOW: BrowserWindow | undefined | null;
 let SPLASH_SCREEN_WINDOW: BrowserWindow | undefined;
+let IS_APP_QUITTING = false;
 
 Menu.setApplicationMenu(kangarooMenu(KANGAROO_FILESYSTEM));
 
 app.whenReady().then(async () => {
-  SPLASH_SCREEN_WINDOW = createSplashWindow();
+  /**
+   * Figure out which splashscreen to show and whether to start holochain immediately.
+   */
+  let splashScreenType: SplashScreenType;
+  let startImmediately = false;
+
+  if (KANGAROO_CONFIG.passwordMode === 'no-password') {
+    splashScreenType = SplashScreenType.LoadingOnly;
+    startImmediately = true;
+  } else if (KANGAROO_CONFIG.passwordMode === 'password-required') {
+    if (KANGAROO_FILESYSTEM.keystoreInitialized()) {
+      splashScreenType = SplashScreenType.EnterPassword;
+    } else {
+      splashScreenType = SplashScreenType.PasswordSetup;
+    }
+  } else if (KANGAROO_CONFIG.passwordMode === 'password-optional') {
+    const keystoreInitialized = KANGAROO_FILESYSTEM.keystoreInitialized();
+    const randomPwExists = KANGAROO_FILESYSTEM.randomPasswordExists();
+    if (keystoreInitialized && randomPwExists) {
+      splashScreenType = SplashScreenType.LoadingOnly;
+      startImmediately = true;
+    } else if (keystoreInitialized && !randomPwExists) {
+      splashScreenType = SplashScreenType.EnterPassword;
+    } else {
+      splashScreenType = SplashScreenType.PasswordSetupOtional;
+    }
+  } else {
+    throw new Error(
+      `Unexpected setup state.\nKeystore initialized: ${KANGAROO_FILESYSTEM.keystoreInitialized()}.\nPassword mode: ${
+        KANGAROO_CONFIG.passwordMode
+      }\nRandom pw exists: ${KANGAROO_FILESYSTEM.randomPasswordExists()}`
+    );
+  }
+
+  /**
+   * IPC handlers
+   *
+   * Note that any IPC handlers that the splashscreen might be using should be registered
+   * before the splashscreen window is created in order to ensure that they are getting
+   * registered in time.
+   */
+  // ------------------------------------------------------------------------------------
   ipcMain.handle('sign-zome-call', handleSignZomeCall);
   ipcMain.handle('exit', () => {
     app.exit(0);
   });
+  ipcMain.handle('get-name-and-version', () => ({
+    productName: KANGAROO_CONFIG.productName,
+    version: KANGAROO_CONFIG.version,
+  }));
+  // Will be called by the splashscreen UI in the "password-optional"
+  // or "user-provided" password modes
+  ipcMain.handle('launch', async (_e, passwordInput: PasswordType): Promise<void> => {
+    const { lairHandle, holochainManager, mainWindow, zomeCallSigner } = await launch(
+      KANGAROO_FILESYSTEM,
+      KANGAROO_EMITTER,
+      SPLASH_SCREEN_WINDOW,
+      passwordInput,
+      RUN_OPTIONS
+    );
 
-  // Check for updates
+    LAIR_HANDLE = lairHandle;
+    HOLOCHAIN_MANAGER = holochainManager;
+    MAIN_WINDOW = mainWindow;
+    ZOME_CALL_SIGNER = zomeCallSigner;
+
+    if (KANGAROO_CONFIG.systray) {
+      MAIN_WINDOW.on('close', mainWindowCloseHandler);
+    }
+  });
+  // ------------------------------------------------------------------------------------
+
+  SPLASH_SCREEN_WINDOW = createSplashWindow(splashScreenType);
+  SPLASH_SCREEN_WINDOW.on('closed', () => {
+    // We need to drop the variable here to be able to distinguish
+    // in other places whether the splah screen window is still open
+    // or not.
+    SPLASH_SCREEN_WINDOW = undefined;
+  });
+
+  if (KANGAROO_CONFIG.systray) {
+    const systray = new Tray(SYSTRAY_ICON_PATH);
+    systray.setToolTip(KANGAROO_CONFIG.productName);
+
+    const contextMenu = Menu.buildFromTemplate([
+      {
+        label: 'Open',
+        type: 'normal',
+        click() {
+          if (SPLASH_SCREEN_WINDOW) {
+            SPLASH_SCREEN_WINDOW.show();
+          } else if(MAIN_WINDOW) {
+            MAIN_WINDOW.show();
+          }
+        },
+      },
+      {
+        label: 'Restart',
+        type: 'normal',
+        click() {
+          const options: Electron.RelaunchOptions = {
+            args: process.argv,
+          };
+          // https://github.com/electron-userland/electron-builder/issues/1727#issuecomment-769896927
+          if (process.env.APPIMAGE) {
+            console.log('process.execPath: ', process.execPath);
+            options.args?.unshift('--appimage-extract-and-run');
+            options.execPath = process.env.APPIMAGE;
+          }
+          app.relaunch(options);
+          app.quit();
+        },
+      },
+      {
+        label: 'Quit',
+        type: 'normal',
+        click() {
+          app.quit();
+        },
+      },
+    ]);
+
+    systray.setContextMenu(contextMenu);
+  }
+
+  /**
+   * Checking for app updates
+   */
   if (app.isPackaged && KANGAROO_CONFIG.autoUpdates) {
     autoUpdater.allowPrerelease = true;
     autoUpdater.autoDownload = false;
@@ -205,76 +330,29 @@ app.whenReady().then(async () => {
     }
   }
 
-  if (!KANGAROO_FILESYSTEM.keystoreInitialized()) {
-    if (SPLASH_SCREEN_WINDOW)
-      SPLASH_SCREEN_WINDOW.webContents.send(
-        'loading-progress-update',
-        'Initializing lair keystore...'
-      );
-
-    console.log('initializing lair keystore...');
-    await initializeLairKeystore(
-      RUN_OPTIONS.lairPath ? RUN_OPTIONS.lairPath : LAIR_BINARY,
-      KANGAROO_FILESYSTEM.keystoreDir,
+  /**
+   * If the conditions are fulfilled we can immediately start holochain here,
+   * otherwise we start holochain when the corresponding splashscreen UI invokes
+   * the 'launch' IPC command
+   */
+  if (startImmediately) {
+    const { lairHandle, holochainManager, mainWindow, zomeCallSigner } = await launch(
+      KANGAROO_FILESYSTEM,
       KANGAROO_EMITTER,
-      LAIR_PASSWORD
+      SPLASH_SCREEN_WINDOW,
+      { type: 'random' },
+      RUN_OPTIONS
     );
-    console.log('lair keystore initialized.');
+
+    LAIR_HANDLE = lairHandle;
+    HOLOCHAIN_MANAGER = holochainManager;
+    MAIN_WINDOW = mainWindow;
+    ZOME_CALL_SIGNER = zomeCallSigner;
+
+    if (KANGAROO_CONFIG.systray) {
+      MAIN_WINDOW.on('close', mainWindowCloseHandler);
+    }
   }
-  if (SPLASH_SCREEN_WINDOW)
-    SPLASH_SCREEN_WINDOW.webContents.send('loading-progress-update', 'Starting lair keystore...');
-
-  let lairUrl;
-
-  [LAIR_HANDLE, lairUrl] = await launchLairKeystore(
-    RUN_OPTIONS.lairPath ? RUN_OPTIONS.lairPath : LAIR_BINARY,
-    KANGAROO_FILESYSTEM.keystoreDir,
-    KANGAROO_EMITTER,
-    LAIR_PASSWORD
-  );
-
-  ZOME_CALL_SIGNER = await ZomeCallSigner.connect(lairUrl, LAIR_PASSWORD);
-
-  if (SPLASH_SCREEN_WINDOW)
-    SPLASH_SCREEN_WINDOW.webContents.send('loading-progress-update', 'Starting Holochain...');
-
-  HOLOCHAIN_MANAGER = await HolochainManager.launch(
-    KANGAROO_EMITTER,
-    KANGAROO_FILESYSTEM,
-    RUN_OPTIONS.holochainPath ? RUN_OPTIONS.holochainPath : HOLOCHAIN_BINARY,
-    LAIR_PASSWORD,
-    KANGAROO_CONFIG.bins.holochain.version,
-    KANGAROO_FILESYSTEM.conductorDir,
-    KANGAROO_FILESYSTEM.conductorConfigPath,
-    lairUrl,
-    RUN_OPTIONS.bootstrapUrl ? RUN_OPTIONS.bootstrapUrl.toString() : DEFAULT_BOOTSTRAP_SERVER,
-    RUN_OPTIONS.signalingUrl ? RUN_OPTIONS.signalingUrl.toString() : DEFAULT_SIGNALING_SERVER,
-    RUN_OPTIONS.iceUrls ? RUN_OPTIONS.iceUrls : undefined
-  );
-
-  // Install happ if necessary
-  await HOLOCHAIN_MANAGER.installHappIfNecessary(RUN_OPTIONS.networkSeed);
-
-  console.log('Happ installed.');
-
-  const appToken = await HOLOCHAIN_MANAGER.getAppToken();
-
-  console.log('Starting main window...');
-
-  SPLASH_SCREEN_WINDOW.close();
-
-  MAIN_WINDOW = await createHappWindow(
-    {
-      type: 'path',
-      path: UI_DIRECTORY,
-    },
-    HAPP_APP_ID,
-    HOLOCHAIN_MANAGER.appPort,
-    appToken,
-    false
-  );
-  // This is just here to make it compile for now.
-  console.log(MAIN_WINDOW);
 });
 
 // Quit when all windows are closed, except on macOS. There, it's common
@@ -287,6 +365,14 @@ app.on('window-all-closed', () => {
   // }
 });
 
+// This is here to distinguish in the 'close' listener of the main window,
+// for the case that a systray icon is used, whether the main window should
+// indeed be closed (if the app is attempted to be quit via the systray menu)
+// or only hidden
+app.on('before-quit', () => {
+  IS_APP_QUITTING = true;
+});
+
 app.on('quit', () => {
   if (LAIR_HANDLE) {
     LAIR_HANDLE.kill();
@@ -296,49 +382,40 @@ app.on('quit', () => {
   }
 });
 
-// app.on("activate", () => {
-//   // On OS X it's common to re-create a window in the app when the
-//   // dock icon is clicked and there are no other windows open.
-//   if (BrowserWindow.getAllWindows().length === 0) {
-//     createMainWindow();
-//   }
-// });
+/**
+ * This handler will make sure that the main window only gets hidden instead of
+ * closed (to maintain the javascript state) if the systray icon option is
+ * used.
+ *
+ * @param e Window close event
+ */
+const mainWindowCloseHandler = (e: Event) => {
+  if (!IS_APP_QUITTING && MAIN_WINDOW) {
+    e.preventDefault();
+    MAIN_WINDOW.hide();
 
-// const contextMenu = Menu.buildFromTemplate([
-//   {
-//     label: 'Open',
-//     type: 'normal',
-//     click() {
-//       if (SPLASH_SCREEN_WINDOW) {
-//         SPLASH_SCREEN_WINDOW.show();
-//       } else if (MAIN_WINDOW) {
-//         MAIN_WINDOW.show();
-//       }
-//     },
-//   },
-//   {
-//     label: 'Restart',
-//     type: 'normal',
-//     click() {
-//       const options: Electron.RelaunchOptions = {
-//         args: process.argv,
-//       };
-//       // https://github.com/electron-userland/electron-builder/issues/1727#issuecomment-769896927
-//       if (process.env.APPIMAGE) {
-//         console.log('process.execPath: ', process.execPath);
-//         options.args?.unshift('--appimage-extract-and-run');
-//         options.execPath = process.env.APPIMAGE;
-//       }
-//       app.relaunch(options);
-//       app.quit();
-//     },
-//   },
-//   {
-//     label: 'Quit',
-//     type: 'normal',
-//     click() {
-//       app.quit();
-//     },
-//   },
-// ]);
-// });
+    const notificationIcon = nativeImage.createFromPath(NOTIFICATIONS_ICON_PATH);
+    new Notification({
+      title: `${KANGAROO_CONFIG.productName} keeps running in the background`,
+      body: `To close ${KANGAROO_CONFIG.productName} and stop synching with peers, quit from the icon in the system tray.`,
+      icon: notificationIcon,
+    })
+      .on('click', async () => {
+        if (MAIN_WINDOW) {
+          MAIN_WINDOW.show();
+          const response = await dialog.showMessageBox(MAIN_WINDOW, {
+            type: 'info',
+            message: `${KANGAROO_CONFIG.productName} keeps running in the background if you close the Window.\n\nThis is to keep synchronizing data with peers.\n\nDo you want to quit ${KANGAROO_CONFIG.productName} fully?`,
+            buttons: ['Keep Running', 'Quit'],
+            defaultId: 0,
+            cancelId: 1,
+          });
+          if (response.response === 1) {
+            app.quit();
+          }
+        }
+      })
+      .show();
+  }
+  console.log("Is main window still defined?", MAIN_WINDOW);
+};

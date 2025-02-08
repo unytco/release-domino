@@ -39,18 +39,18 @@ jobs:
         with:
           go-version: 'stable'
 
-      - name: Environment setup
-        run: |
-          yarn setup
-
       # This step is only used for testing in the official kangaroo repo
       - name: Overwrite Names for release testing and fetch kando webhapp from github
         if: ${{ github.repository }} == 'holochain-apps/holochain-kangaroo-electron'
         run: |
           echo ${{ github.repository }}
           echo "overwriting names for release testing"
-          curl -f -L --output ./pouch/ziptest.webhapp https://github.com/holochain-apps/ziptest/releases/download/ziptest-v0.0.9/ziptest.webhapp
+          curl -f -L --output ./pouch/ziptest.webhapp https://github.com/holochain/ziptest/releases/download/ziptest-v0.1.0/ziptest.webhapp
           node ./scripts/overwrite-with-test-name.js
+
+      - name: Environment setup
+        run: |
+          yarn setup
 
       - name: Retrieve version
         run: |
