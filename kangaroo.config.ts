@@ -4,7 +4,7 @@ export default defineConfig({
   appId: 'co.unyt.hfvz',
   productName: 'hfvz',
   version: '0.5.0',
-  macOSCodeSigning: false,
+  macOSCodeSigning: true,
   windowsEVCodeSigning: false,
   fallbackToIndexHtml: true,
   autoUpdates: true,
