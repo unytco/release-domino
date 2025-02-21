@@ -1,5 +1,6 @@
 appId: ____PLACEHOLDER____
 productName: ____PLACEHOLDER____
+copyright: 'Copyright © 2025 unyt.co'
 directories:
   buildResources: build
 files:
@@ -27,14 +28,28 @@ mac:
 dmg:
   artifactName: ${name}-${version}-${arch}.${ext}
 linux:
+  appId: 'co.unyt.hfvz'
   target:
     - AppImage
     - deb
     # - snap
-  maintainer: electronjs.org
-  category: Utility
+  maintainer: zo-el
+  category: Accounting
+  vendor: unyt.co
+  synopsis: 'Mutual Credit Accounting System'
+  desktop:
+    Name: hfvz
+    Comment: Mutual Credit Accounting System
+    Categories: Accounting
 appImage:
   artifactName: ${name}-${version}.${ext}
+deb:
+  description: Mutual Credit Accounting System
+  desktop:
+    Name: hfvz
+    Comment: Mutual Credit Accounting System
+    Categories: Accounting
+  packageName: hfvz
 npmRebuild: false
 # publish:
 #   provider: generic

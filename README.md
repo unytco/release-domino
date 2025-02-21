@@ -1,159 +1,66 @@
-# Holochain-Kangaroo Electron
+# HFvZ Releases
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/unytco/hfvz-releases?style=for-the-badge)
+![GitHub All Releases](https://img.shields.io/github/downloads/unytco/hfvz-releases/total?style=for-the-badge)
 
-Put your Holochain App in this Kangaroo's electron pouch and let it run.
 
-This repository let's you easily convert your Holochain app into a standalone, electron-based cross-platform Desktop app.
+## Related docs
+- [Test Plan](./testing_docs/1_0_testing_plan.md)
+    - [Phase 1 Testing Details](./testing_docs/1_1_phase_testing_details.md)
+- [How to install HFvZ app?](./README.md)
+- [Intro to RAVEs (Three Layers)](./testing_docs/1_2_three_layers_of_raves.md)
+- [Sample Code for Creating RAVEs](./testing_docs/rave_templates)
+- [Feedback Board](https://github.com/orgs/unytco/projects/5/views/1)
 
-**Note:** Support for non-breaking updates to happ coordinator zomes is currently not built into the kangaroo.
+## Intro
+HFvZ is a Holochain based application for creating agent-centric, peer-to-peer, Mutual Credit accounting systems with smart contract like functionality.
 
-# Holochain Versions
+We are working with potential partner projects like yours as we build out this software to ensure that it meets the needs of your team as well as your community of users.
 
-Depending on which Holochain minor version you want to use you should use the corresponding branch of this repository.
+## Overview
+This [Test Plan](./testing_docs/1_0_testing_plan.md) document gives a bit of a overview of the sorts of UX / UI feedback that we are seeking at present.
 
-- Holochain 0.3.x (stable): [main-0.3](https://github.com/holochain/kangaroo-electron/tree/main-0.3)
-- Holochain 0.4.x: [main](https://github.com/holochain/kangaroo-electron/tree/main)
+## Installation
 
-# Instructions
+Download the appropriate version for your system.
 
-## Setup and Testing Locally
 
-1. Either use this repository as a template (by clicking on the green "Use this template" button) or fork it.
-   Using it as a template allows you to start with a clean git history and the contributors of this repository won't show up as contributors to your new repository. **Forking has the advantage of being able to relatively easily pull in updates from this parent repository at a later point in time.** If you fork it, it may be smart to work off a different branch than the main branch in your forked repository in order to be able to keep the main branch in sync with this parent repository and selectively merge into your working branch as needed.
 
-2. In your local copy of the repository, run
+| Releases    | 
+| --------    | 
+|    [Windows](https://github.com/unytco/hfvz-releases/releases/download/v0.4.0/co.unyt.hfvz-0.4.0-setup.exe)    | 
+|    [Linux Debian](https://github.com/unytco/hfvz-releases/releases/download/v0.4.0/co.unyt.hfvz_0.4.0_amd64.deb)  (recomended)  | 
+|    [Linux AppImage](https://github.com/unytco/hfvz-releases/releases/download/v0.4.0/co.unyt.hfvz-0.4.0.AppImage)   (read note below) | 
+|    [macOS-13 Silicon arm64 (M1/M2/M3/M4)](https://github.com/unytco/hfvz-releases/releases/download/v0.4.0/co.unyt.hfvz-0.4.0-macos-13-arm64.dmg)    |
+|    [macOS-13 Intel x64](https://github.com/unytco/hfvz-releases/releases/download/v0.4.0/co.unyt.hfvz-0.4.0-macos-13-x64.dmg)  |
+|    [macOS-latest Silicon arm64 (M1/M2/M3/M4)](https://github.com/unytco/hfvz-releases/releases/download/v0.4.0/co.unyt.hfvz-0.4.0-macos-latest-arm64.dmg.blockmap)    |
+|    [macOS-latest Intel x64](https://github.com/unytco/hfvz-releases/releases/download/v0.4.0/co.unyt.hfvz-0.4.0-macos-latest-x64.dmg)  |
+|    [Android]() (no release available)    |
+|    [iOS]() (no release available)    |
 
-```
-yarn setup
-```
 
-3. In the `kangaroo.config.ts` file, replace the `appId` and `productName` fields with names appropriate for your own app.
+> [!IMPORTANT]
+> If you encounter sandbox-related issues, you can try running the AppImage with:
+> ```bash
+> ELECTRON_DISABLE_SANDBOX=1 ./hfvz.AppImage
+> ```
+> This is automatically configured in the latest version, but might be needed for manual execution in some cases.
 
-4. Choose a version number in the `version` field of `kangaroo.config.ts`. And **Read** the section [Versioning](#Versioning) below to understand the implications.
 
-5. Paste the `.webhapp` file of your holochain app into the `pouch` folder.
-   **Note**: The kangaroo expects a 1024x1024 pixel `icon.png` at the root level of your webhapp's UI assets.
+All available versions can be found in the [Releases](
+https://github.com/unytco/hfvz-releases/releases)
 
-6. To test it, run
+## Setup
+Note: The release for your operating system may not be code signed yet, so you may need to right click to open the file.
 
-```
-yarn dev
-```
+When you open HFvZ on your operating system for the first time, it will create a set of public and private keys for you that you can use to interact with others. These are stored in a private keystore (Lair) on your own machine and are used during future uses. 
 
-## Build the Distributable
+To get started, you will want to install the software on a couple of devices so you can try sending, executing, and receiving transactions. 
 
-### Build locally
+Next, dive into the [Test Plan](./testing_docs/1_0_testing_plan.md).
 
-To build the app locally for your platform, run the build command for your respecive platform:
 
-```
-yarn build:linux
+## License
 
-# or
-yarn build:mac
+[![License: CAL 1.0](https://img.shields.io/badge/License-CAL%201.0-blue.svg)](https://github.com/holochain/cryptographic-autonomy-license)
 
-# or
-yarn build:windows
-```
-
-### Build on CI for all platforms
-
-The general workflow goes as follows:
-
-1. Create a draft release on github and set its "Tag verion" to the value of the `version` field that you chose in `kangaroo.config.ts` and prefix it with `v`, for example `v0.1.0`.
-
-2. Merge the main branch into the release branch and push it to github to trigger the release workflow.
-
-If you do this for the first time you will need to create the `release` branch first:
-
-```
-git checkout -b release
-git merge main
-git push --set-upstream origin release
-```
-
-For subsequent releases after that you can run
-
-```
-git checkout release
-git merge main
-git push
-```
-
-## Automatic Updates
-
-By default, the kangaroo is set up to check github releases for semver compatible releases by their tag name whenever the app starts up and will prompt to install and restart if one is available. This can be disabled by setting `autoUpdates` to `false` in `kangaroo.config.ts`.
-
-> [!NOTE]
-> Note that once your app is deployed, this setting can only be turned on again for newer releases and users will have to manually install new versions.
-
-## Versioning
-
-To allow for subsequent incompatible releases of your app (for example due to switching to a new Holochain version or introducing a breaking change in the integrity zomes of your .happ) without having to change the app's name or identifier, the kangaroo is set up to use semver to support incompatible versions of your app running fully independently from each other and store their data in dedicated locations on disk.
-
-Examples:
-
-- version 0.0.2 and 0.0.3 of your app will store their data in independent locations on disk and version 0.0.3 will not have access to any data created/obtained in version 0.0.2
-- version 0.3.4 will reuse the same Holochain conductor and data as version 0.3.2
-- versions 0.3.0-alpha and 0.3.0-beta will _not_ share data
-- versions 0.3.0-alpha.0 and 0.3.0-alpha.1 _will_ share data
-
-> [!NOTE]
-> It is your responsibility to make sure that if you mark two versions of your app as semver compatible they actually are compatible (e.g. that you don't try to run a new incompatible version of Holochain on existing databases).
-
-## Code Signing
-
-### macOS
-
-To use code signing on macOS for your release in CI you will have to
-
-1. Set the `macOSCodeSigning` field to `true` in `kangaroo.config.ts`
-2. Add the following secrets to your github repository with the appropriate values:
-
-- `APPLE_DEV_IDENTITY`
-- `APPLE_ID_EMAIL`
-- `APPLE_ID_PASSWORD`
-- `APPLE_TEAM_ID`
-
-### Windows
-
-If you want to code sign your app with an EV certificate, you can follow [this guide](https://melatonin.dev/blog/how-to-code-sign-windows-installers-with-an-ev-cert-on-github-actions/) to get your EV certificate hosted on Azure Key Vault and then
-
-1. Set the `windowsEVCodeSigning` field to `true` in `kangaroo.config.ts`
-2. Add all the necessary secrets to the repository:
-
-- `AZURE_KEY_VAULT_URI`
-- `AZURE_CERT_NAME`
-- `AZURE_TENANT_ID`
-- `AZURE_CLIENT_ID`
-- `AZURE_CLIENT_SECRET`
-
-## Permissions on macOS
-
-Access to things like camera and microphone on macOS require special permissions to be set in the .plist file. For this, uncomment the corresponding permissions in `./templates/electron-builder-template.yml` as needed.
-
-## Run your App from the command line
-
-If you want to customize some runtime parameters you can run your app via the terminal and pass additional options:
-
-```
-Options:
-  -V, --version                  output the version number
-  -p, --profile <string>         Runs Holochain Kangaroo Electron (Test) with a custom profile with its own dedicated data store.
-  -n, --network-seed <string>    If this is the first time running kangaroo with the given profile, this installs the happ with the
-                                 provided network seed.
-  --holochain-path <path>        Runs Holochain Kangaroo Electron (Test) with the holochain binary at the provided path. Use with caution
-                                 since this may potentially corrupt your databases if the binary you use is not compatible with existing
-                                 databases.
-  --lair-path <path>             Runs the Holochain Kangaroo Electron (Test) with the lair binary at the provided path. Use with caution
-                                 since this may potentially corrupt your databases if the binary you use is not compatible with existing
-                                 databases.
-  --holochain-rust-log <string>  RUST_LOG value to pass to the holochain binary
-  --holochain-wasm-log <string>  WASM_LOG value to pass to the holochain binary
-  --lair-rust-log <string>       RUST_LOG value to pass to the lair keystore binary
-  -b, --bootstrap-url <url>      URL of the bootstrap server to use (not persisted across restarts).
-  -s, --signaling-url <url>      URL of the signaling server to use (not persisted across restarts).
-  --ice-urls <string>            Comma separated string of ICE server URLs to use. Is ignored if an external holochain binary is being used
-                                 (not persisted across restarts).
-  --print-holochain-logs         Print holochain logs directly to the terminal (they will be still written to the logfile as well)
-  -h, --help                     display help for command
-```
+Copyright (C) 2024 - 2025, unyt.co
