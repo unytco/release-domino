@@ -1,6 +1,6 @@
 {
-  "name": "org.holochain.kangaroo-electron",
-  "version": "0.1.0",
+  "name": "co.unyt.hfvz",
+  "version": "0.6.0",
   "license": "CAL-1.0",
   "main": "./out/main/index.js",
   "scripts": {

@@ -5,7 +5,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Released
 
-[0.5.0]
+## [0.6.0]
 
 ### Updated
 
@@ -17,6 +17,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - validation: check input and output against code_template schema [#71](https://github.com/unytco/hfvz/pull/71)
 - validation: check parked_promises unyt_allocation against rave outputs unyt_allocation [#72](https://github.com/unytco/hfvz/pull/72)
 
+## [0.5.0]
+
+- broken release due to build issues in the kangaroo repo
 
 ## [0.4.0]
 
