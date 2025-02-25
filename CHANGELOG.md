@@ -5,6 +5,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Released
 
+## [0.6.1]
+
+### Updated
+
+- ui: network sync checks for pool definition and code templates required to start transactions [#73](https://github.com/unytco/hfvz/pull/73)
+
 ## [0.6.0]
 
 ### Updated
