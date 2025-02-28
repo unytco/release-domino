@@ -1,10 +1,10 @@
 # example_query_rave_template
 
-# Create Code Template
+## Create Code Template
 
-## Template Name
+### Template Name
 
-```
+```text
 example_query_rave_template
 ```
 
@@ -20,10 +20,11 @@ example_query_rave_template
       "items": {
         "type": "object",
         "properties": {
-          "amount": { "type": "string" },
-          "agent": { "type": "string" }
+          "amount": { "type": "array", "items": { "type": "string" } },
+          "agent": { "type": "string" },
+          "proof": { "type": "string" }
         },
-        "required": ["amount", "agent"]
+        "required": ["amount", "agent", "proof"]
       }
     }
   },
@@ -49,22 +50,19 @@ return #{
   "type": "object",
   "properties": {
     "unyt_allocation": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "amount": { "type": "string" },
-          "receiver": { "type": "string" }
-        },
-        "required": ["amount", "receiver"]
-      }
+      "type": "object",
+      "properties": {
+        "amount": { "type": "array", "items": { "type": "string" } },
+        "receiver": { "type": "string" }
+      },
+      "required": ["amount", "receiver"]
     }
   },
   "required": ["unyt_allocation"]
 }
 ```
 
-# Executable Agreement
+## Executable Agreement
 
 // When Creating an (Executable) Agreement for this type of RAVE, these Input Rules are recommended
 

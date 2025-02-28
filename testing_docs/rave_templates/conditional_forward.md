@@ -1,10 +1,10 @@
 # conditional_forward
 
-# Create Code Template
+## Create Code Template
 
-## Template Name
+### Template Name
 
-```
+```text
 conditional_forward
 ```
 
@@ -15,15 +15,13 @@ conditional_forward
   "type": "object",
   "properties": {
     "unyt_allocation": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "amount": { "type": "string" },
-          "agent": { "type": "string" }
-        },
-        "required": ["amount", "agent"]
-      }
+      "type": "object",
+      "properties": {
+        "amount": { "type": "array", "items": { "type": "string" } },
+        "agent": { "type": "string" },
+        "proof": { "type": "string" }
+      },
+      "required": ["amount", "agent", "proof"]
     }
   },
   "required": ["unyt_allocation"]
@@ -47,22 +45,19 @@ return #{
   "type": "object",
   "properties": {
     "unyt_allocation": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "amount": { "type": "string" },
-          "agent": { "type": "string" }
-        },
-        "required": ["amount", "agent"]
-      }
+      "type": "object",
+      "properties": {
+        "amount": { "type": "array", "items": { "type": "string" } },
+        "agent": { "type": "string" }
+      },
+      "required": ["amount", "agent"]
     }
   },
   "required": ["unyt_allocation"]
 }
 ```
 
-# Executable Agreement
+## Executable Agreement
 
 // When Creating an (Executable) Agreement for this type of RAVE, these Input Rules are recommended
 

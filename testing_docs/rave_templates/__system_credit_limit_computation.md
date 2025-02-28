@@ -1,10 +1,10 @@
 # \_\_system_credit_limit_computation
 
-# Create Code Template
+## Create Code Template
 
-## Template Name
+### Template Name
 
-```
+```text
 __system_credit_limit_computation
 ```
 
@@ -30,21 +30,17 @@ __system_credit_limit_computation
 
 if claiming_agent_pubkey == special_account_pubkey {
   return  #{
-      "credit_limit": [
-        #{
-            "agent": special_account_pubkey,
-            "amount": special_account_credit_limit
-        }
-      ]
+    "credit_limit":  #{
+          "agent": special_account_pubkey,
+          "amount": special_account_credit_limit
+     }
   };
 } else {
   return #{
-      "credit_limit": [
-        #{
-            "agent": claiming_agent_pubkey,
-            "amount": "100"
-        }
-      ]
+      "credit_limit": #{
+          "agent": claiming_agent_pubkey,
+          "amount": "100"
+      }
   };
 }
 
@@ -57,19 +53,16 @@ if claiming_agent_pubkey == special_account_pubkey {
   "type": "object",
   "properties": {
     "credit_limit": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": { "agent": { "type": "string" }, "amount": { "type": "string" } },
-        "required": ["agent", "amount"]
-      }
+      "type": "object",
+      "properties": { "agent": { "type": "string" }, "amount": { "type": "string" } },
+      "required": ["agent", "amount"]
     }
   },
   "required": ["credit_limit"]
 }
 ```
 
-# Executable Agreement
+## Executable Agreement
 
 // When Creating an (Executable) Agreement for this type of RAVE, these Input Rules are recommended
 
