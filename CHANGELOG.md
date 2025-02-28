@@ -5,6 +5,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Released
 
+## [0.7.0]
+
+### Updated
+
+- add rhai helper functions for raves [#74](https://github.com/unytco/hfvz/pull/74)
+- add a Custom RAVE Instructions for inputs [#75](https://github.com/unytco/hfvz/pull/75)
+
 ## [0.6.1]
 
 ### Updated
