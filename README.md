@@ -47,12 +47,42 @@ Download the appropriate version for your system.
 All available versions can be found in the [Releases](
 https://github.com/unytco/hfvz-releases/releases)
 
+Once installed, set up HFvZ either with a password or without a password. In either case, the software will run locally on your device and your password will not leave your device. 
+
+NOTE: If you set up with a password and later lose your password, we will NOT be able to help you regain access to your account. You will need to delete the software and reinstall to create a fresh account to continue testing. See below section on **Starting Fresh**.
+
 ## Setup
 Note: The release for your operating system may not be code signed yet, so you may need to right click to open the file.
 
 When you open HFvZ on your operating system for the first time, it will create a set of public and private keys for you that you can use to interact with others. These are stored in a private keystore (Lair) on your own machine and are used during future uses. 
 
 To get started, you will want to install the software on a couple of devices so you can try sending, executing, and receiving transactions. 
+
+## Starting Fresh
+Details on removal and reinstallation.
+
+If you want to start fresh (whether because you lost a password or for another reason), uninstall the old version and then reinstall again. On Mac, you will also need your local data:
+
+Here are the steps for Uninstalling, Deleting Local Data and Reinstalling the app:
+
+1. Close the app. 
+
+2. Delete the hfvz file from your applications folder. 
+
+3. Open the Terminal application
+4. In Terminal, type the following two commands and hit enter after each:
+
+```
+cd ~/Library/Application\ Support
+```
+
+```
+rm -rf co.unyt.hfvz
+```
+
+That co.unyt.hfvz file had your local data in it. 
+
+Now that it is deleted, you can again install hfvz and start fresh with a new account.
 
 Next, dive into the [Test Plan](./testing_docs/1_0_testing_plan.md).
 
