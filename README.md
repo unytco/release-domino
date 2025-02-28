@@ -27,11 +27,11 @@ Download the appropriate version for your system.
 
 | Releases    | 
 | --------    | 
-|    [Windows](https://github.com/unytco/hfvz-releases/releases/download/v0.6.0/co.unyt.hfvz-0.6.0-setup.exe)    | 
-|    [Linux Debian](https://github.com/unytco/hfvz-releases/releases/download/v0.6.0/co.unyt.hfvz_0.6.0_amd64.deb)  (recomended)  | 
-|    [Linux AppImage](https://github.com/unytco/hfvz-releases/releases/download/v0.6.0/co.unyt.hfvz-0.6.0.AppImage)   (read note below) | 
-|    [macOS x84](https://github.com/unytco/hfvz-releases/releases/download/v0.6.0/co.unyt.hfvz-0.6.0-x64.dmg)  |
-|    [macOS arm64 (M1/M2/M3/M4)](https://github.com/unytco/hfvz-releases/releases/download/v0.6.0/co.unyt.hfvz-0.6.0-arm64.dmg.blockmap)    |
+|    [macOS x84 (intel)](https://github.com/unytco/hfvz-releases/releases/download/v0.7.0/co.unyt.hfvz-0.7.0-x64.dmg)  |
+|    [macOS arm64 (silicon)](https://github.com/unytco/hfvz-releases/releases/download/v0.7.0/co.unyt.hfvz-0.7.0-arm64.dmg.blockmap)    |
+|    [Linux Debian](https://github.com/unytco/hfvz-releases/releases/download/v0.7.0/co.unyt.hfvz_0.7.0_amd64.deb)  (recomended)  | 
+|    [Linux AppImage](https://github.com/unytco/hfvz-releases/releases/download/v0.7.0/co.unyt.hfvz-0.7.0.AppImage)   (read note below) | 
+|    [Windows](https://github.com/unytco/hfvz-releases/releases/download/v0.7.0/co.unyt.hfvz-0.7.0-setup.exe)    | 
 |    [Android]() (no release available)    |
 |    [iOS]() (no release available)    |
 
