@@ -5,6 +5,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Released
 
+## [0.8.0]
+
+### Updated
+
+- UI: updated to load rave library from rave library dir [#78](https://github.com/unytco/hfvz/pull/78)
+- RAVE library: added conditional forward and aggregate receive raves [#79](https://github.com/unytco/hfvz/pull/79)
+- validations: checks the output amount against the promised amount [#79](https://github.com/unytco/hfvz/pull/79)
+- RAVE library: conditional forward check units transferred [#80](https://github.com/unytco/hfvz/pull/80)
+- UI: handles amount sign based on the endpoints used [#81](https://github.com/unytco/hfvz/pull/81)
+
 ## [0.7.0]
 
 ### Updated
