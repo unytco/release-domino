@@ -4,7 +4,7 @@
 
 - [Test Plan](./1_0_testing_plan.md)
 - [HFvZ Setup](../README.md)
-- [Phase 2 Testing Details](./1_1_phase_2_testing_details.md)
+- [Phase 2 Testing Details](./2_0_phase_2_testing_details.md)
 - [Intro to RAVEs (Three Layers)](./1_2_three_layers_of_raves.md)
 - [Sample Code for Creating RAVEs](./rave_templates)
 - [RAVE Library Repo](https://github.com/unytco/rave_library)
@@ -53,7 +53,7 @@ When an executor runs an agreement, they commit a record of its execution which 
 
 **Matching Inputs & Outputs:** The number of units included as inputs, must match the total number of units in the outputs. Like the first law of thermodynamics, RAVEs must not create or destroy units.
 
-Next, if you haven't already, check out the [Phase 1 Testing Details](./1_1_phase_testing_details.md)
+Next, if you haven't already, check out the [Phase 2 Testing Details](./2_0_phase_2_testing_details.md)
 
 
 
