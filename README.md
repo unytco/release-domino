@@ -1,4 +1,4 @@
-# HFvZ Releases
+vZ Releases
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/unytco/hfvz-releases?style=for-the-badge)
 ![GitHub All Releases](https://img.shields.io/github/downloads/unytco/hfvz-releases/total?style=for-the-badge)
 
@@ -93,3 +93,4 @@ Next, dive into the [Test Plan](./testing_docs/1_0_testing_plan.md).
 [![License: CAL 1.0](https://img.shields.io/badge/License-CAL%201.0-blue.svg)](https://github.com/holochain/cryptographic-autonomy-license)
 
 Copyright (C) 2024 - 2025, unyt.co
+
