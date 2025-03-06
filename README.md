@@ -62,7 +62,7 @@ To get started, you will want to install the software on a couple of devices so 
 ## Starting Fresh
 Details on removal and reinstallation.
 
-If you want to start fresh (whether because you lost a password or for another reason), uninstall the old version and then reinstall again. On Mac, you will also need your local data:
+If you want to start fresh (whether because you lost a password or for another reason), uninstall the old version and then reinstall again. On Mac, you will also need to delete your local data:
 
 Here are the steps for Uninstalling, Deleting Local Data and Reinstalling the app:
 
