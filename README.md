@@ -5,7 +5,7 @@
 
 ## Related docs
 - [Test Plan](./testing_docs/1_0_testing_plan.md)
-- [Phase 2 Testing Details](./testing_docs/1_1_phase_2_testing_details.md)
+- [Phase 2 Testing Details](./testing_docs/2_0_phase_2_testing_details.md)
 - [How to install HFvZ app?](./README.md)
 - [Intro to RAVEs (Three Layers)](./testing_docs/1_2_three_layers_of_raves.md)
 - [Sample Code for Creating RAVEs](./testing_docs/rave_templates)
