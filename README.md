@@ -29,7 +29,7 @@ Download the appropriate version for your system.
 | Releases    | 
 | --------    | 
 |    [macOS x84 (intel)](https://github.com/unytco/hfvz-releases/releases/download/v0.8.0/co.unyt.hfvz-0.8.0-x64.dmg)  |
-|    [macOS arm64 (silicon)](https://github.com/unytco/hfvz-releases/releases/download/v0.8.0/co.unyt.hfvz-0.8.0-arm64.dmg.blockmap)    |
+|    [macOS arm64 (silicon)](https://github.com/unytco/hfvz-releases/releases/download/v0.8.0/co.unyt.hfvz-0.8.0-arm64.dmg)    |
 |    [Linux Debian](https://github.com/unytco/hfvz-releases/releases/download/v0.8.0/co.unyt.hfvz_0.8.0_amd64.deb)  (recomended)  | 
 |    [Linux AppImage](https://github.com/unytco/hfvz-releases/releases/download/v0.8.0/co.unyt.hfvz-0.8.0.AppImage)   (read note below) | 
 |    [Windows](https://github.com/unytco/hfvz-releases/releases/download/v0.8.0/co.unyt.hfvz-0.8.0-setup.exe)    | 
