@@ -8,7 +8,6 @@
 - [Phase 2 Testing Details](./testing_docs/2_0_phase_2_testing_details.md)
 - [How to install HFvZ app?](./README.md#installation)
 - [Intro to RAVEs (Three Layers)](./testing_docs/1_2_three_layers_of_raves.md)
-- [Sample Code for Creating RAVEs](./testing_docs/rave_templates)
 - [RAVE Library](https://github.com/unytco/rave_library)
 - [Feedback Board](https://github.com/orgs/unytco/projects/5/views/1)
 
