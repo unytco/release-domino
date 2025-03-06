@@ -48,12 +48,12 @@ Version: 0.2.4
 
 Test usability of the full range of basic transactional functionality
 
-- [ ] set up new users / accounts (3?)
+- [ ] set up new users / accounts
 - [ ] send/receive via normal transactions, including credit limit enforcement and deduction of transaction fees
 - [ ] send/receive via RAVEs, including credit limit enforcement and deduction of transaction fees
 - [ ] Use conditional logic RAVEs (e.g. conditional forward / non-custodial escrow)
 
-At present we expect to have a total of four phases of testing, each lasting about 2-3 weeks.
+At present we expect to have a total of four phases of testing, each lasting about 2-4 weeks.
 
 
 ### 3. Feedback
