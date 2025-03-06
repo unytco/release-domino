@@ -4,7 +4,7 @@
 
 - [Test Plan](./1_0_testing_plan.md)
 - [HFvZ Setup](../README.md)
-- [Phase 2 Testing Details](./1_1_phase_2_testing_details.md)
+- [Phase 2 Testing Details](./2_0_phase_2_testing_details.md)
 - [Intro to RAVEs (Three Layers)](./1_2_three_layers_of_raves.md)
 - [Sample Code for Creating RAVEs](./rave_templates)
 - [RAVE Library Repo](https://github.com/unytco/rave_library)
