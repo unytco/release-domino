@@ -1,4 +1,4 @@
-vZ Releases
+# HFvZ Releases
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/unytco/hfvz-releases?style=for-the-badge)
 ![GitHub All Releases](https://img.shields.io/github/downloads/unytco/hfvz-releases/total?style=for-the-badge)
 
