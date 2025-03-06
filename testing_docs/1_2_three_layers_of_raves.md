@@ -26,7 +26,7 @@ Publishing Code Templates allows the logic built into Raves to be reused by diff
 
 **Input Schema:** Needs to be a JSON Schema that can be used to define the expected input into the `execution_code` and can be used to validate the input in the `ExecutableAgreement`
 
-**Execution Code:** This is the code that will be executed for the RAVE. Currently we support executing [RHAI](https://rhai.rs) code. You can find some [example code here](./rave_templates).
+**Execution Code:** This is the code that will be executed for the RAVE. Currently we support executing [RHAI](https://rhai.rs) code. You can find some [examples here](https://github.com/unytco/rave_library/tree/main/library).
 
 **Output Schema:** Similar to the input Schema this needs to be a JSON Schema and would be the expected output of the Execution Code
 
