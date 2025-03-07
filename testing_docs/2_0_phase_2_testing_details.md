@@ -23,7 +23,7 @@ See also, [Phase 1 testing details](https://github.com/unytco/hfvz-releases/blob
 ### Overview of context:
 Unyt is creating an accounting software system that makes flows of service activity visible as well as the payments for that service through credit creation and credit use.
 
-HFvZ is focused on accounting that recognizes the utilization of services and not just a demonstration of capacity.
+HFvZ is focused on accounting that recognizes the utilization of services and not just a demonstration of capacity. 
 
 ### Version
 In Phase 2, we are testing version 0.8.0 of HFvZ.
@@ -70,30 +70,38 @@ We have a full list below, but the two big changes since Phase 1 testing are the
 ### Details of New Changes
 
 **Aggregate Sends**
-HFvZ now includes support for bulk (or aggregate) Sends. 
-This enables a series of payment promises to be prepared using a particular Executable Agreement and Executor (whether by the Spender or from multiple requests from others). 
+HFvZ now includes support for bulk (or aggregate) sends. 
+This enables a series of payment promises to be prepared using a particular Executable Agreement and Executor (whether by the Spender or from multiple requests (i.e. invoices) from others). 
 
 If a sender sets up multiple payments, they can pay all of them with a single click.
 
-If another party (or parties) have sent multiple invoices to an agent, (requesting payment) these will show up for the Spender as Requests to Spend. In addition to being able to Send one payment at a time, the new Aggregate Sends functionality supports them being able to Send all of them with a single button click.
+If another party (or parties) have sent multiple invoices to an agent, (requesting payment) these will show up for the Spender as Requests to Spend. In addition to being able to Send one payment at a time, the new Aggregate Sends functionality supports them being able to Send all of them as Parked Promises (links on the Action of that Executable Agreement) with a single button click.
 
-This functionality is needed in contexts such as DePIN where there will be high volumes of transactions and we want the user experience to be fairly simple. 
+This functionality is useful in contexts such as DePIN where there will be high volumes of transactions maybe with different service providers, but through the same Executable Agreement and we want the user experience to be fairly simple. 
 
-**Aggregate Receives**
-HFvZ also now supports bulk (or aggregate) acceptances of payments. Similar to aggregate sends, this enables multiple payments, whether from a single spender or multiple spenders, when all are using the same Executable Agreement and Executor.
+**Aggregate Execution** 
+HFvZ also now supports Aggregate Executions of Parked Promises on an Executable Agreement. Similar to aggregate sends, this enables multiple payments to be processed with a single RAVE, whether from a single spender or multiple spenders, when all are using the same Executable Agreement and Executor. After the RAVE has been Executed, the Executor will notify the Receiver(s) that they have a Payment to Accept. 
 
-This functionality is needed in contexts such as DePIN and can support things like Service Fee collection or Transaction Fee Collection. Each transaction will sit on the RAVE as a Parked Promise and when the Receiver goes to collect, they will be able to click one button and receive each of the parked promise payments.
+This functionality is useful in contexts such as DePIN and can support things like Service Fee collection or Transaction Fee Collection.
 
-**The technical details (for developers that are somewhat familiar with holochain)**
+**The technical details (for the geeks among us)**
 The mechanism by which notifications related to spends and receives work makes use of [holochain links](https://developer.holochain.org/concepts/5_links_anchors/), whether added as 
-- metadata (ex: Request to Spend) on the Spender agentpubkey, 
+- metadata (ex: an Invoice, i.e. Request to Spend) on the Spender agentpubkey, 
+- metadata (Request to Execute) on the [Action](https://developer.holochain.org/resources/glossary/#action) of the Executable Agreement. 
 - metadata (Payment Available for Collection) on the Receiver agentpubkey, or 
-- metadata (Request to Execute) on the Executor agentpubkey. 
 
-When a Spender has been invoiced for one or more payments, they would look at their copy of HFvZ and see the list of outstanding Requests to Spend (which are being drawn from the links on their own agentpubkey). When they pay those, not only is a new Entry on their own source chain being created to make that payment, but they are then also marking the paid request links as deleted, indicating (to themselves) that they have been paid and are no longer outstanding. In addition, they would add a link to either the Receiver's agentpubkey (in the case of a direct transaction) or the Executor's agentpubkey (in the case of a RAVE transaction), thereby notifying them that they have an item that they can take action on.
+
+For example: when a Spender has been invoiced for one or more payments, they would look at their copy of HFvZ and see the list of outstanding Requests to Spend (which are being drawn from the links on their own agentpubkey). 
+
+When they pay those, not only is a new Action and a new Entry on their own source chain being created to make that payment, but they are then also marking the relevant Request to Spend links as deleted, indicating (to themselves and others) that they these are no longer outstanding. 
+
+In addition, in the case of a direct transaction, the Spender would add a link to the Receiver's agentpubkey. 
+In the case of a RAVE transaction, the spender would instead add a Parked Promise link to the Action of the Executable Agreement.
+
+Note that these links don't affect account balances. They are being used solely for notification purposes.
 
 **Multi-Unit Accounting**
-We have added support for multiple accounting units to be supported in any particular Pool. Each particular community that is running a Pool (i.e. their own whitelabled and customized version of the software) would be making use of a single "Base Unit" for making and receiving payments in their application. In addition, they can define different "Service Units" that can be used in the pool as well for tracking activity. This supports tracking of value contributions in one direction and payments in the other direction, and enables both customers and service providers to have some visibility into the value that they have received or the contributions that they have made, in addition to the payments that have been made in one direction or the other.
+We have added support for multiple accounting units to be supported in any particular Pool. Each particular community that is running a Pool (i.e. their own white-labeled and customized version of the software) would be making use of a single "Base Unit" for making and receiving payments in their application. In addition, they can define different "Service Units" that can be used in the pool as well for tracking activity. This supports tracking of value contributions in one direction and payments in the other direction, and enables both customers and service providers to have some visibility into the value that they have received or the contributions that they have made, in addition to the payments that have been made in one direction or the other.
 
 
 **Base Unit**
@@ -104,9 +112,9 @@ In addition to the Base Unit of a pool, HFvZ supports tracking the sending and r
 
 Participants can send Service Units as part of a RAVE, or in a direct transaction. 
 
-The most common use would be in a RAVE, where the Service Units are documenting the services that have been provided. These are quantities. A canonical case involves Services being provided at rates determined by a Price Sheet. For instance, 1 HF per 10MB of Bandwidth. When a Service Provider goes to Invoice the customer, they would send an Invoice that showed 50 BW (Megabytes of Bandwidth) and 5 HF. Note that Service Units will show up inversed, meaning that the party that provided the services would see their account go from 0 BW to -50 BW (reflecting that they had provided services to others) while the Base Unit would go from 0 HF to 5 HF (reflecting that they had been paid for the services that they had provided).
+The most common use would be in a RAVE, where the Service Units are documenting the services that have been provided. These are quantities. A canonical case involves Services being provided at rates determined by a Price Sheet. For instance, 1 HF per 10MB of Bandwidth. When a Service Provider goes to Invoice the customer, they could send an Invoice that showed 50 BW (Megabytes of Bandwidth) and 5 HF. Note that Service Units will show up inversed, meaning that the party that provided the services might see their account go from 0 BW to -50 BW (reflecting that they had provided services to others) while the Base Unit would go from 0 HF to 5 HF (reflecting that they had been paid for the services that they had provided).
 
-Though a less common use case, to send Service Units in a direct transaction, click on the Unit (which defaults to the base unit, HF) and change it to service unit that you are wanting to transfer. To be clear, this is an accounting only and is actually intended to make visible services that have been provided. For instance, if you provided 100 megabytes of bandwidth services, you could make that visible by sending 100 BW to the customer that was benefited from those services. 
+Though a less common use case, to send Service Units in a Direct Transaction, click on the Unit (which defaults to the base unit, HF) and change it to service unit that you are wanting to transfer. To be clear, this is an accounting only and is actually intended to make visible services that have been provided. For instance, if you had donated 100 megabytes of bandwidth services to a customer, you could make that visible by sending 100 BW to that customer. 
 
 
 **Pool Definition**
@@ -115,9 +123,9 @@ The Pool Admin(s) (a privileged role) creates and edits the pool definition. Thi
 The first Pool Piece that gets set up is the Base Unit. 
 Any subsequent pieces are Service Units. 
 Any of the Units can be edited by the Pool Admin(s). 
-Once set, these different Units would likely change only rarely and usually in situations where new types of services are being offered and thus needing to be documented.
+Once set, these different Units would likely change only rarely and usually in situations where new types of services are being offered that require a clear accounting.
 
-At present, HFvZ can support up to 255 different Service Units in addition to the one Base Unit for that pool.
+By default, HFvZ can support up to 255 different Service Units in addition to the one Base Unit for that pool.
 
 
 **Checking Balance(s)**
@@ -131,7 +139,7 @@ If you have not sent or received a particular service unit, the current user int
 An upcoming version will have Fees Automatically Paid during the transaction immediately following a transaction when the Fees Owed balance crosses a threshold (ex: 10 HF). Those fees are then able to be collected by the Fee Collector using the Aggregate Receives functionality mentioned above.
 
 **Passwords (optional)**
-When you open the app for the first time, you have the option to create a password. There is no centralized control over your use. If you forget your password, we can't help you regain access to your app. More details are available on the [README](../README.md).
+When you open the app for the first time, you have the option to create a password. There is no centralized control over your use. If you forget your password, we can't help you regain access to your app. Uninstall the app and create a fresh install to start from scratch and continue testing. More details are available on the [README](../README.md).
 
 
 **Three Methods to Initiate a RAVE from an Executable Agreement**
@@ -149,7 +157,7 @@ One way to think about this is that similar to doing a Direct Transaction Promis
 A Parked Invoice on the other hand starts one step earlier. It first sets up a Receiver with an ability to Submit an Invoice and Request a Payment from the spender. Often, if that invoice involves service provision through one of the networks or members of the Pool Alliance, it may need to include some proof of service. 
 
 **Executor Initiated**
-Whereas both The Parked Promise and Parked Invoice RAVE Initiation Methods lend themselves naturally to payment like functionality, the Executor Initiated Method can have a wide range of functionality. For instance the __System_Credit_Limit_Computation RAVE is one that was Executor Initiated. The Executor for that RAVE initialized it and anybody can run it (to compute their own credit limit -- 1000 HF in the current version).
+Whereas both The Parked Promise and Parked Invoice RAVE Initiation Methods lend themselves naturally to payment like functionality, the Executor Initiated Method can have a wide range of functionality. For instance the __System_Credit_Limit_Computation RAVE is one that is typically Executor Initiated. Anytime a Spender is going to spend into the negative, they first Execute a __System_Credit_Limit_Computation RAVE and include the result on their source chain as the Action immediately preceding their attempt to do a Spend Transaction that takes their balance below zero. The current version of that Executable Agreement enables anybody to run it (to compute their own credit limit -- 1000 HF in the current version).
 
 ### Creating Custom RAVEs
 A major focus of phase 2 testing is on having testers work on creating custom RAVEs that they think might be useful in their particular context. To that end, we have created a RAVE Library as a Github Repository. It has some examples and guidance at present and we would love to have you create new RAVEs, try them out in HFvZ and add them to the [RAVE Library Repo](https://github.com/unytco/rave_library)
@@ -382,11 +390,26 @@ Who: Any member of your community in good standing.
 
 ### RAVEs
 #### About RAVEs
-A RAVE, or Record of Agreement, Verifiably Executed is similar to a Blockchain based Smart Contract, but is designed to enable automated agreement execution in agent-based Holochain applications.
+RAVEs, or Records of Agreements, Verifiably Executed are similar to Blockchain based Smart Contracts, but are designed to enable automated agreement execution in agent-based Holochain applications.
 
-Like computer programs more generally, a RAVE can be created to automate the verifiable execution of a wide range of activities. 
+Like computer programs more generally, a RAVE can be created to automate the execution of a wide range of activities. 
 
-A RAVE is executed by an Executor. Select other agents in the network validate that the execution was done properly and are relied upon by other agents for their assessment of validity. However, any other agent can independently validate that the execution was done properly. The Executor must satisfy whatever criteria is spelled out in the RAVE, and in the Executable Agreement that it is an instance of, whether that requires a specific agent to serve as Executor, requires the agent to have a particular role, or enables any agent to have been selected as Executor.
+A RAVE is executed by an Executor. Select other agents in the network validate that the execution was done properly and are relied upon by other agents for their assessment of validity. However, any other agent can independently validate that the execution was done properly. 
+
+A RAVE is an Instantiation of an Executable Agreement. An Executable Agreement must conform to the Code Template that it is based on.
+
+A RAVE includes 
+
+1) a set of Inputs - from the source(s) specified in the Executable Agreement and that match the Input Signature of the relevant Code Template. 
+
+2) execution code
+
+3) a set of Outputs, that match the Output Signature of the relevant Code Template.
+
+In addition, the specific agent that Executes the RAVE must satisfy the Executor criteria from the revelant Executable Agreement, whether that:
+  a) requires a specific agent to serve as Executor, 
+  b) requires the Executor to be one of set of specific agents or
+  c) enables any agent to have been selected as Executor.
 
 Much is outlined in the [Three Layers of RAVEs document](https://github.com/unytco/hfvz-releases/blob/develop/testing_docs/1_2_three_layers_of_raves.md), but here is a bit more detail about how RAVEs work.
 

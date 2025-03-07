@@ -66,7 +66,7 @@ In HFvZ, there are two main categories of transactions:
 ### Overview of Transaction Types
 **Direct Mutual Credit Transactions** involve the sending of credits from one agent directly to another agent. They involve changes to the source chain history of the spender and the receiver. A selection of other agents independently validate each step in this process.
 
-**RAVE (Recorded Agreement of Verifiable Execution) Transactions** are similar to blockchain based smart contracts, but are designed to make use of Holochain's agent centric architecture. They involve the verifiable execution of an agreement by an executor. RAVEs  changes to the source chain history of a spender, an executor, and a receiver. A selection of other agents independently validate each step in this process. RAVE transactions allow more complicated logic to be made use of in structuring transactions and the conditions under which those transactions will be processed.
+**RAVE (Recorded Agreement of Verifiable Execution) Transactions** are similar to blockchain based smart contracts, but are designed to make use of Holochain's agent centric architecture. They involve the verifiable execution of an agreement by an executor. RAVEs make changes to the source chain history of an executor, and potentially of a sender and a receiver. A selection of other agents independently validate each step in this process. RAVE transactions allow more complicated logic to be made use of in structuring transactions and the conditions under which those transactions will be processed.
 
 #### Direct Mutual Credit Transactions
 A Process Overview
@@ -222,11 +222,22 @@ RAVEs, or Recorded Agreements of Verifiable Execution are similar to Blockchain 
 
 Like computer programs more generally, a RAVE can be created to automate the execution of a wide range of activities. 
 
-A RAVE is executed by an Executor. Select other agents in the network validate that the execution was done properly and are relied upon by other agents for their assessment of validity. However, any other agent can independently validate that the execution was done properly. The Executor must satisfy whatever criteria is spelled out in the RAVE, and in the Executable Agreement that it is an instance of, whether that requires a specific agent to serve as Executor, requires the agent to have a particular role, or enables any agent to have been selected as Executor.
+A RAVE is executed by an Executor. Select other agents in the network validate that the execution was done properly and are relied upon by other agents for their assessment of validity. However, any other agent can independently validate that the execution was done properly. 
+
+A RAVE is an Instantiation of an Executable Agreement. An Executable Agreement must conform to the Code Template that it is based on.
+
+A RAVE includes 
+1) a set of Inputs - from the source(s) specified in the Executable Agreement 
+2) execution code
+3) a set of Outputs
+In addition, the specific agent that Executes the RAVE must satisfy the Executor criteria from the revelant Executable Agreement, whether that:
+  a) requires a specific agent to serve as Executor, 
+  b) requires the Executor to be one of set of specific agents or
+  c) enables any agent to have been selected as Executor.
 
 #### The existing Executable Agreements
 
-*UI Bug note: In the RAVE Templates tab, clicking on an existing Code Template row will show Executable Agreements that have already been created using that code template.*
+*UI Bug note: In the RAVE Templates tab, there are missing dropdown icons.  Clicking on the whitespace in an existing Code Template row will show Executable Agreements that have already been created using that code template. These can be used to initiate a RAVE.*
 
 
 There are a couple of RAVEs that have been set up already:
@@ -294,5 +305,7 @@ When creating an Executable Agreement, there are a few ways in which a particula
     * Allows you to query the [HDK](https://docs.rs/hdk/latest/hdk/), 80% of the time this will be a get_links call. See this [example code template](https://github.com/unytco/hfvz-releases/blob/develop/testing_docs/rave_templates/test_query_rave_template.md)). Or [learn more about links and get_links](https://developer.holochain.org/build/links-paths-and-anchors/).
 
 Once you have created an Executable Agreement, click Initialize to start creating a RAVE that conforms to that Agreement. Once initialized, the agents listed in the agreement will get notified that they have Actionable Transactions when it is their turn to take some action. (again, this may require a reload to show up.)
+
+If you are ready, head next to [Phase 2 Testing Details](./1_1_phase_2_testing_details.md).
 
 If you have any thoughts, questions or criticisms, please feel free to add items to our [feedback board](https://github.com/orgs/unytco/projects/5/views/1), and don't hesitate to reach out to our team.
