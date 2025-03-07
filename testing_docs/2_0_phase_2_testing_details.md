@@ -390,11 +390,26 @@ Who: Any member of your community in good standing.
 
 ### RAVEs
 #### About RAVEs
-A RAVE, or Record of Agreement, Verifiably Executed is similar to a Blockchain based Smart Contract, but is designed to enable automated agreement execution in agent-based Holochain applications.
+RAVEs, or Records of Agreements, Verifiably Executed are similar to Blockchain based Smart Contracts, but are designed to enable automated agreement execution in agent-based Holochain applications.
 
-Like computer programs more generally, a RAVE can be created to automate the verifiable execution of a wide range of activities. 
+Like computer programs more generally, a RAVE can be created to automate the execution of a wide range of activities. 
 
-A RAVE is executed by an Executor. Select other agents in the network validate that the execution was done properly and are relied upon by other agents for their assessment of validity. However, any other agent can independently validate that the execution was done properly. The Executor must satisfy whatever criteria is spelled out in the RAVE, and in the Executable Agreement that it is an instance of, whether that requires a specific agent to serve as Executor, requires the agent to have a particular role, or enables any agent to have been selected as Executor.
+A RAVE is executed by an Executor. Select other agents in the network validate that the execution was done properly and are relied upon by other agents for their assessment of validity. However, any other agent can independently validate that the execution was done properly. 
+
+A RAVE is an Instantiation of an Executable Agreement. An Executable Agreement must conform to the Code Template that it is based on.
+
+A RAVE includes 
+
+1) a set of Inputs - from the source(s) specified in the Executable Agreement and that match the Input Signature of the relevant Code Template. 
+
+2) execution code
+
+3) a set of Outputs, that match the Output Signature of the relevant Code Template.
+
+In addition, the specific agent that Executes the RAVE must satisfy the Executor criteria from the revelant Executable Agreement, whether that:
+  a) requires a specific agent to serve as Executor, 
+  b) requires the Executor to be one of set of specific agents or
+  c) enables any agent to have been selected as Executor.
 
 Much is outlined in the [Three Layers of RAVEs document](https://github.com/unytco/hfvz-releases/blob/develop/testing_docs/1_2_three_layers_of_raves.md), but here is a bit more detail about how RAVEs work.
 
