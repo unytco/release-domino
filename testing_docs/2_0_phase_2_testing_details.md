@@ -47,7 +47,7 @@ We have a full list below, but the two big changes since Phase 1 testing are the
 ### Summary:
 **New Features**
 - Bulk Processing
-    - Aggregate Spends
+    - Aggregate Sends
     - Aggregate Receives
 - Multi-Unit Accounting
     - Base Units
