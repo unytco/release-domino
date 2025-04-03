@@ -4,7 +4,7 @@
 #### links to related docs
 
 - [Test Plan](./1_0_testing_plan.md)
-- [HFvZ Setup](../README.md)
+- [Piecework Setup](../README.md)
 - [Phase 2 Testing Details](./1_1_phase_2_testing_details.md)
 - [Intro to RAVEs (Three Layers)](./1_2_three_layers_of_raves.md)
 - [Sample Code for Creating RAVEs](./rave_templates)
@@ -18,26 +18,26 @@ Feel free to use the outline view available in the upper right to get an overvie
 
 ### Phase 1 Testing Orientation
 
-In Phase 1, we are testing version 0.2.4 of HFvZ
+In Phase 1, we are testing version 0.2.4 of Piecework
 
-HFvZ is software that runs locally on your computer and connects with other instances to form a peer-to-peer network.
+Piecework is software that runs locally on your computer and connects with other instances to form a peer-to-peer network.
 
 In the future, there will likely be many different networks running their own version of this software for their community.
 
 During Phase 1 Testing, however, all testers will be joining a single peer network and will be able to send and receive transactions from anyone else in the test network.
 
 
-For this Phase of testing, you will not need to create a password to log in to your copy of the HFvZ. If you lose your device or delete the software (and your private key), you will lose the ability act as that agent (including the ability to control any test currency that has been sent to you account). (Local) Password login is a feature that we can incorporate in a later release.
+For this Phase of testing, you will not need to create a password to log in to your copy of the Piecework. If you lose your device or delete the software (and your private key), you will lose the ability act as that agent (including the ability to control any test currency that has been sent to you account). (Local) Password login is a feature that we can incorporate in a later release.
 
-Once you have opened HFvZ, you can test out different types of transactions. To start with, in this version, each agent will have a credit limit of 100 units.
+Once you have opened Piecework, you can test out different types of transactions. To start with, in this version, each agent will have a credit limit of 100 units.
 
 All of you will be using the software as a super user with the ability to not only engage in transactions, but to create new RAVEs (smart contract like functionality). Any Code Template, Executable Agreement or RAVE that you create will be visible to other users. 
 
 Clicking on your identicon (on the right side) will copy your public key to the clipboard. You can then share that with others through whatever other medium you have available. 
 
-They will enter it on their own copy of HFvZ when doing things like sending you an invoice (a request for payment) or a promise (a sending of payment) or when choosing you to serve as the executor of a RAVE.
+They will enter it on their own copy of Piecework when doing things like sending you an invoice (a request for payment) or a promise (a sending of payment) or when choosing you to serve as the executor of a RAVE.
 
-Note that this version of HFvZ doesn't yet have push notifications set up. So for the time being, you may need to hit reload in order to see that someone has sent you a transaction to Pay or Execute or Accept.
+Note that this version of Piecework doesn't yet have push notifications set up. So for the time being, you may need to hit reload in order to see that someone has sent you a transaction to Pay or Execute or Accept.
 
 If nobody else on your team is a available to test alongside you yet, feel free to try out some transactions with some of our team. 
 
@@ -59,7 +59,7 @@ We are more than happy to jump on a video conference call to play alongside you 
 On to the details!
 
 ### Transactions
-In HFvZ, there are two main categories of transactions:
+In Piecework, there are two main categories of transactions:
 1) Direct Mutual Credit Transactions
 2) RAVE Transactions
 
@@ -138,7 +138,7 @@ An invoice transaction involves the same underlying payment workflow as a promis
 ### Making a Direct Transaction 
 A step-by-step walk through.
 
-The below Direct Transactions will only work if the sender has available credit in their account. For testing with HFvZ 0.2.0. we have set it up so that any new agent starts with a credit limit of 100. 
+The below Direct Transactions will only work if the sender has available credit in their account. For testing with Piecework 0.2.0. we have set it up so that any new agent starts with a credit limit of 100. 
 
 
 #### Send direct transactions via Promise
@@ -302,7 +302,7 @@ When creating an Executable Agreement, there are a few ways in which a particula
 * Fixed
     * A fixed input (used in Direct Transactions)
 * Query 
-    * Allows you to query the [HDK](https://docs.rs/hdk/latest/hdk/), 80% of the time this will be a get_links call. See this [example code template](https://github.com/unytco/hfvz-releases/blob/develop/testing_docs/rave_templates/test_query_rave_template.md)). Or [learn more about links and get_links](https://developer.holochain.org/build/links-paths-and-anchors/).
+    * Allows you to query the [HDK](https://docs.rs/hdk/latest/hdk/), 80% of the time this will be a get_links call. See this [example code template](https://github.com/unytco/piecework-releases/blob/develop/testing_docs/rave_templates/test_query_rave_template.md)). Or [learn more about links and get_links](https://developer.holochain.org/build/links-paths-and-anchors/).
 
 Once you have created an Executable Agreement, click Initialize to start creating a RAVE that conforms to that Agreement. Once initialized, the agents listed in the agreement will get notified that they have Actionable Transactions when it is their turn to take some action. (again, this may require a reload to show up.)
 

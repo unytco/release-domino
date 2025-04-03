@@ -28,7 +28,7 @@ mac:
 dmg:
   artifactName: ${name}-${version}-${arch}.${ext}
 linux:
-  appId: 'co.unyt.hfvz'
+  appId: 'co.unyt.piecework'
   target:
     - AppImage
     - deb
@@ -38,7 +38,7 @@ linux:
   vendor: unyt.co
   synopsis: 'Mutual Credit Accounting System'
   desktop:
-    Name: hfvz
+    Name: piecework
     Comment: Mutual Credit Accounting System
     Categories: Accounting
 appImage:
@@ -46,10 +46,10 @@ appImage:
 deb:
   description: Mutual Credit Accounting System
   desktop:
-    Name: hfvz
+    Name: piecework
     Comment: Mutual Credit Accounting System
     Categories: Accounting
-  packageName: hfvz
+  packageName: piecework
 npmRebuild: false
 # publish:
 #   provider: generic

@@ -1,6 +1,6 @@
 {
-  "name": "co.unyt.hfvz",
-  "version": "0.8.0",
+  "name": "co.unyt.piecework",
+  "version": "0.9.0",
   "license": "CAL-1.0",
   "main": "./out/main/index.js",
   "scripts": {
