@@ -3,7 +3,7 @@
 #### links to related docs
 
 - [Test Plan](./1_0_testing_plan.md)
-- [Piecework Setup](../README.md)
+- [Domino Setup](../README.md)
 - [Phase 2 Testing Details](./1_1_phase_2_testing_details.md)
 - [Intro to RAVEs (Three Layers)](./1_2_three_layers_of_raves.md)
 - [RAVE Library Repo](https://github.com/unytco/rave_library)
@@ -16,27 +16,27 @@ Phase 2 Test Details are Below.
 
 Feel free to use the outline view available in the upper right to get an overview of the different content covered.
 
-See also, [Phase 1 testing details](https://github.com/unytco/piecework-releases/blob/develop/testing_docs/1_1_phase_testing_details.md).
+See also, [Phase 1 testing details](https://github.com/unytco/domino-releases/blob/develop/testing_docs/1_1_phase_testing_details.md).
 
 ## Phase 2 Testing Orientation
 
 ### Overview of context:
 Unyt is creating an accounting software system that makes flows of service activity visible as well as the payments for that service through credit creation and credit use.
 
-Piecework is focused on accounting that recognizes the utilization of services and not just a demonstration of capacity. 
+Domino is focused on accounting that recognizes the utilization of services and not just a demonstration of capacity. 
 
 ### Version
-In Phase 2, we are testing version 0.8.0 of Piecework.
+In Phase 2, we are testing version 0.8.0 of Domino.
 
 A couple of reminders:
 1) This version of the software hasn't had its UX/UI simplified for a particular use case or particular end users. 
-2) This version is intended to help partners and their developers gain familiarity with the features and functionality of piecework, and 
-3) to help those teams begin exploring the ways in which they may want to make use of piecework for their use cases.
+2) This version is intended to help partners and their developers gain familiarity with the features and functionality of domino, and 
+3) to help those teams begin exploring the ways in which they may want to make use of domino for their use cases.
 
 We will be checking out some new features, seeking guidance on functionality and features and will focus on helping Testing Teams create their own custom RAVEs (Smart Contracts).
 
 ### Refresher / Intro 
-If you are new to Piecework or just need a refresher, check out **The Basics** section towards the end of this document. You can click on it in the outline to get there quickly.
+If you are new to Domino or just need a refresher, check out **The Basics** section towards the end of this document. You can click on it in the outline to get there quickly.
 
 For the rest of you, lets dive straight into the latest changes.
 
@@ -70,7 +70,7 @@ We have a full list below, but the two big changes since Phase 1 testing are the
 ### Details of New Changes
 
 **Aggregate Sends**
-Piecework now includes support for bulk (or aggregate) sends. 
+Domino now includes support for bulk (or aggregate) sends. 
 This enables a series of payment promises to be prepared using a particular Executable Agreement and Executor (whether by the Spender or from multiple requests (i.e. invoices) from others). 
 
 If a sender sets up multiple payments, they can pay all of them with a single click.
@@ -80,7 +80,7 @@ If another party (or parties) have sent multiple invoices to an agent, (requesti
 This functionality is useful in contexts such as DePIN where there will be high volumes of transactions maybe with different service providers, but through the same Executable Agreement and we want the user experience to be fairly simple. 
 
 **Aggregate Execution** 
-Piecework also now supports Aggregate Executions of Parked Promises on an Executable Agreement. Similar to aggregate sends, this enables multiple payments to be processed with a single RAVE, whether from a single spender or multiple spenders, when all are using the same Executable Agreement and Executor. After the RAVE has been Executed, the Executor will notify the Receiver(s) that they have a Payment to Accept. 
+Domino also now supports Aggregate Executions of Parked Promises on an Executable Agreement. Similar to aggregate sends, this enables multiple payments to be processed with a single RAVE, whether from a single spender or multiple spenders, when all are using the same Executable Agreement and Executor. After the RAVE has been Executed, the Executor will notify the Receiver(s) that they have a Payment to Accept. 
 
 This functionality is useful in contexts such as DePIN and can support things like Service Fee collection or Transaction Fee Collection.
 
@@ -91,7 +91,7 @@ The mechanism by which notifications related to spends and receives work makes u
 - metadata (Payment Available for Collection) on the Receiver agentpubkey, or 
 
 
-For example: when a Spender has been invoiced for one or more payments, they would look at their copy of Piecework and see the list of outstanding Requests to Spend (which are being drawn from the links on their own agentpubkey). 
+For example: when a Spender has been invoiced for one or more payments, they would look at their copy of Domino and see the list of outstanding Requests to Spend (which are being drawn from the links on their own agentpubkey). 
 
 When they pay those, not only is a new Action and a new Entry on their own source chain being created to make that payment, but they are then also marking the relevant Request to Spend links as deleted, indicating (to themselves and others) that they these are no longer outstanding. 
 
@@ -105,10 +105,10 @@ We have added support for multiple accounting units to be supported in any parti
 
 
 **Base Unit**
-The Base Unit of a pool is the main Unit of Account that the community using that pool is making and receiving payments in. In the current test version of Piecework, the base unit is HF, or HoloFuel.
+The Base Unit of a pool is the main Unit of Account that the community using that pool is making and receiving payments in. In the current test version of Domino, the base unit is HF, or HoloFuel.
 
 **Service Units**
-In addition to the Base Unit of a pool, Piecework supports tracking the sending and receipt of other units. Inspired by the design of piecework accounting, this enables different communities to decide for themselves the kinds of contributions (useful services) that they expect different members of their community to offer to one another and to determine how those sorts of contributions will be measured and verified. For example, with the Piecework, in addition to HoloFuel, we have created at least two service units - one for Bandwidth (measured in Megabytes) and another for Requests (measured as a count).
+In addition to the Base Unit of a pool, Domino supports tracking the sending and receipt of other units. Inspired by the design of domino accounting, this enables different communities to decide for themselves the kinds of contributions (useful services) that they expect different members of their community to offer to one another and to determine how those sorts of contributions will be measured and verified. For example, with the Domino, in addition to HoloFuel, we have created at least two service units - one for Bandwidth (measured in Megabytes) and another for Requests (measured as a count).
 
 Participants can send Service Units as part of a RAVE, or in a direct transaction. 
 
@@ -125,7 +125,7 @@ Any subsequent pieces are Service Units.
 Any of the Units can be edited by the Pool Admin(s). 
 Once set, these different Units would likely change only rarely and usually in situations where new types of services are being offered that require a clear accounting.
 
-By default, Piecework can support up to 255 different Service Units in addition to the one Base Unit for that pool.
+By default, Domino can support up to 255 different Service Units in addition to the one Base Unit for that pool.
 
 
 **Checking Balance(s)**
@@ -160,7 +160,7 @@ A Parked Invoice on the other hand starts one step earlier. It first sets up a R
 Whereas both The Parked Promise and Parked Invoice RAVE Initiation Methods lend themselves naturally to payment like functionality, the Executor Initiated Method can have a wide range of functionality. For instance the __System_Credit_Limit_Computation RAVE is one that is typically Executor Initiated. Anytime a Spender is going to spend into the negative, they first Execute a __System_Credit_Limit_Computation RAVE and include the result on their source chain as the Action immediately preceding their attempt to do a Spend Transaction that takes their balance below zero. The current version of that Executable Agreement enables anybody to run it (to compute their own credit limit -- 1000 HF in the current version).
 
 ### Creating Custom RAVEs
-A major focus of phase 2 testing is on having testers work on creating custom RAVEs that they think might be useful in their particular context. To that end, we have created a RAVE Library as a Github Repository. It has some examples and guidance at present and we would love to have you create new RAVEs, try them out in Piecework and add them to the [RAVE Library Repo](https://github.com/unytco/rave_library)
+A major focus of phase 2 testing is on having testers work on creating custom RAVEs that they think might be useful in their particular context. To that end, we have created a RAVE Library as a Github Repository. It has some examples and guidance at present and we would love to have you create new RAVEs, try them out in Domino and add them to the [RAVE Library Repo](https://github.com/unytco/rave_library)
 
 For a summary and guidance, start by looking at the comments at the top of the execution_code.rhai file in any particular RAVE.
 
@@ -176,13 +176,13 @@ And that is a wrap for the major new items for Phase 2 testing. Below are the ba
 ## The Basics
 
 ### Testing together on one p2p network
-Piecework is software that runs locally on your computer and connects with other instances to form a peer-to-peer network.
+Domino is software that runs locally on your computer and connects with other instances to form a peer-to-peer network.
 
 In the future, there will likely be many different networks running their own version of this software for their community.
 
 During Phase 2 testing, however, all testers will be joining a single peer network and will be able to send and receive transactions from anyone else in the test network. 
 
-Once you have opened Piecework, you can test out different types of transactions. To start with, in this version, each agent will have a credit limit of 1000 units.
+Once you have opened Domino, you can test out different types of transactions. To start with, in this version, each agent will have a credit limit of 1000 units.
 
 All of you will be using the software as a super user with the ability to not only engage in direct transactions, but to create new RAVEs (smart contract like functionality. details are below.). 
 
@@ -190,7 +190,7 @@ Since this is a shared application, any Code Template, Executable Agreement or R
 
 ### Getting Started
 
-After setting up piecework and signing on (with or without a password), you may get a notification that it has not yet synced. This should not take long, assuming at least one other user of the app is online that has synced with the progenitor that set up this app version. That progenitor has added some RAVEs to set some initial groundrules (with a system_credit_limit_computation) that we are going to be using. They (and maybe others) have added other RAVEs to the RAVE library as well that we can try out. Once you are synced, you will have a credit limit available and will be able to spend into the negative up to your credit limit.
+After setting up domino and signing on (with or without a password), you may get a notification that it has not yet synced. This should not take long, assuming at least one other user of the app is online that has synced with the progenitor that set up this app version. That progenitor has added some RAVEs to set some initial groundrules (with a system_credit_limit_computation) that we are going to be using. They (and maybe others) have added other RAVEs to the RAVE library as well that we can try out. Once you are synced, you will have a credit limit available and will be able to spend into the negative up to your credit limit.
 
 Your Status window should always be visible as an overlay on the upper right.
 
@@ -202,11 +202,11 @@ The Status Window displays:
 
 Clicking on your identicon (on the right side) will copy your public key (your address) to the clipboard. You can then share that with others through whatever other medium you have available (email, signal, whatsapp, zoom chat, etc). 
 
-They will enter it on their own copy of Piecework when doing things like sending you an invoice (a request for payment) or a promise (a sending of payment) or when choosing you to serve as the executor of a RAVE.
+They will enter it on their own copy of Domino when doing things like sending you an invoice (a request for payment) or a promise (a sending of payment) or when choosing you to serve as the executor of a RAVE.
 
 Clicking on your account balance (which should initially read "0 HF") will bring up a window that shows your balance in each of the account units that you have a balance in (positive or negative). You will always see the base unit (HF), a any outstanding fees owed (in the base unit). If you have balances of service units, those will be visible too. 
 
-Note that this version of Piecework doesn't yet have push notifications set up. So for the time being, you may need to hit reload in order to see that someone has sent you a transaction to Pay or Execute or Accept.
+Note that this version of Domino doesn't yet have push notifications set up. So for the time being, you may need to hit reload in order to see that someone has sent you a transaction to Pay or Execute or Accept.
 
 ### Let's test together
 
@@ -228,7 +228,7 @@ And feel free to reach out to us through our shared comms channel on Telegram or
 We are more than happy to jump on a video conference call to test alongside you for a bit. 
 
 ### Transactions
-In Piecework, there are two main types of action:
+In Domino, there are two main types of action:
 1) Direct Mutual Credit Transaction
 2) RAVE (Record of Agreement Verifiably Executed)
 
@@ -312,7 +312,7 @@ Receiver clicks accept. The funds are immediately credited to their account. Rec
 ### Making a Direct Transaction 
 A step-by-step walk through.
 
-The below Direct Transactions will only work if the sender has available credit in their account. For testing with Piecework 0.8.0 we have set it up so that, once synced with the network, any new agent starts with a credit limit of 1000. 
+The below Direct Transactions will only work if the sender has available credit in their account. For testing with Domino 0.8.0 we have set it up so that, once synced with the network, any new agent starts with a credit limit of 1000. 
 
 
 #### Send direct transactions via Promise
@@ -411,7 +411,7 @@ In addition, the specific agent that Executes the RAVE must satisfy the Executor
   b) requires the Executor to be one of set of specific agents or
   c) enables any agent to have been selected as Executor.
 
-Much is outlined in the [Three Layers of RAVEs document](https://github.com/unytco/piecework-releases/blob/develop/testing_docs/1_2_three_layers_of_raves.md), but here is a bit more detail about how RAVEs work.
+Much is outlined in the [Three Layers of RAVEs document](https://github.com/unytco/domino-releases/blob/develop/testing_docs/1_2_three_layers_of_raves.md), but here is a bit more detail about how RAVEs work.
 
 Whether they are instantiated by a Spender, a Receiver, an Executor or another party altogether, the portion that we can describe as the RAVE itself is a specific Record of Agreement, Verifiably Executed, meaning it is the Executor's action that we consider the RAVE. That specific RAVE however, will typically include references to other prior actions which can also be checked and should be valid. Those could include 
 1) a reference to an Executable Agreement, of which the RAVE was an instantiation;
@@ -471,7 +471,7 @@ When creating an Executable Agreement, there are a few ways in which a particula
 * Fixed
     * A fixed input (used in Direct Transactions)
 * Query 
-    * Allows you to query the [HDK](https://docs.rs/hdk/latest/hdk/), 80% of the time this will be a get_links call. See this [example code template](https://github.com/unytco/piecework-releases/blob/develop/testing_docs/rave_templates/test_query_rave_template.md)). Or [learn more about links and get_links](https://developer.holochain.org/build/links-paths-and-anchors/).
+    * Allows you to query the [HDK](https://docs.rs/hdk/latest/hdk/), 80% of the time this will be a get_links call. See this [example code template](https://github.com/unytco/domino-releases/blob/develop/testing_docs/rave_templates/test_query_rave_template.md)). Or [learn more about links and get_links](https://developer.holochain.org/build/links-paths-and-anchors/).
 
 Once you have created an Executable Agreement, click one of the Initialization Methods (PI, PP, or Ex) to start creating a RAVE that conforms to that Agreement. Once initialized, the agents listed in the agreement will get notified that they have Actionable Transactions when it is their turn to take some action. (again, this may require a reload to show up.)
 

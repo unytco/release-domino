@@ -1,9 +1,9 @@
 import { defineConfig } from './src/main/defineConfig';
 
 export default defineConfig({
-  appId: 'co.unyt.piecework',
-  productName: 'piecework',
-  version: '0.9.1',
+  appId: 'co.unyt.domino',
+  productName: 'domino',
+  version: '0.10.0',
   macOSCodeSigning: true,
   windowsEVCodeSigning: false,
   fallbackToIndexHtml: true,
