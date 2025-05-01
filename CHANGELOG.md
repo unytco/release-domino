@@ -3,6 +3,17 @@
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.11.0]
+
+### Updated
+
+- validation: reviewed validation for links [#118](https://github.com/unytco/domino/pull/118)
+- validation: credit check for sales-agent [#118](https://github.com/unytco/domino/pull/118)
+- create link from EA to RAVE to collect all the RAVE's that were executed for a EA [#118](https://github.com/unytco/domino/pull/118)
+- UI: create custom conversion sheets [#119](https://github.com/unytco/domino/pull/119)
+- upgraded UI workspace to maintain multiple UI skins [#121](https://github.com/unytco/domino/pull/121)
+- improved rave_engine with tests [#123](https://github.com/unytco/domino/pull/123)
+
 ## [0.10.0]
 
 ### Updated
