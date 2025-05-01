@@ -3,6 +3,18 @@
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.12.0]
+
+### Updated
+
+- Defined common `Transaction` type for all actions[#124](https://github.com/unytco/domino/pull/124)
+- Documentation of zome calls[#124](https://github.com/unytco/domino/pull/124)
+- Testing: improved tests for credit checks [#125](https://github.com/unytco/domino/pull/125)
+- Added possible_actions to the `Transaction` type [#126](https://github.com/unytco/domino/pull/126)
+- Testing: improved tests for fees dropoff and collections [#127](https://github.com/unytco/domino/pull/127)
+- ui: bug fix on the parked spend form to parse the payload [#128](https://github.com/unytco/domino/pull/127)
+- ui: updated interact as button to show descriptions
+
 ## [0.11.0]
 
 ### Updated
