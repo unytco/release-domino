@@ -3,6 +3,36 @@
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.13.0]
+
+### Added
+
+- New common `Transaction` type for improved UI experience and consistency [#129](https://github.com/unytco/domino/pull/129)
+  - Introduces standardized transaction states: pending, actionable, and completed
+  - Replaces multiple transaction types with a unified interface
+- DNA: agent_details for managing personal address book [#130](https://github.com/unytco/domino/pull/130)
+
+### Changed
+
+- Updated API endpoints to use the common `Transaction` type: [#129](https://github.com/unytco/domino/pull/129)
+  - `get_sorted_requests_to_spend`: Now returns `Vec<Vec<Transaction>>`
+  - `accept_paying_parked_invoice`: Now uses `AcceptPayingInvoices` type
+  - `get_requests_to_execute_agreements`: Now uses `ExecutionRequests` type
+  - `get_parked_spend`: Now returns `Vec<Transaction>`
+  - `get_parked_links`: Now returns `Vec<Transaction>`
+  - `get_incoming_raves`: Now returns `Vec<Transaction>`
+  - `collect_from_rave`: Now returns `Transaction`
+  - `get_all_my_executed_raves`: Now returns `Vec<Transaction>`
+- Updated Language only on dev-ui [#132](https://github.com/unytco/domino/pull/132)
+
+### Deprecated
+
+- `RAVEToCollect` type is deprecated in favor of the common `Transaction` type [#129](https://github.com/unytco/domino/pull/129)
+
+### Updated
+
+- ActionTable component for improved transaction management [#129](https://github.com/unytco/domino/pull/129)
+
 ## [0.12.0]
 
 ### Updated
