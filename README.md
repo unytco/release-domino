@@ -4,12 +4,6 @@
 
 
 ## Related docs
-- [Test Plan](./testing_docs/1_0_testing_plan.md)
-- [Phase 2 Testing Details](./testing_docs/2_0_phase_2_testing_details.md)
-- [How to install Domino app?](./README.md#installation)
-- [Intro to RAVEs (Three Layers)](./testing_docs/1_2_three_layers_of_raves.md)
-- [RAVE Library](https://github.com/unytco/rave_library)
-- [Feedback Board](https://github.com/orgs/unytco/projects/5/views/1)
 
 - [Test Plan](./testing_docs/1_0_testing_plan.md)
 - [Domino Setup](./README#installation.md)
