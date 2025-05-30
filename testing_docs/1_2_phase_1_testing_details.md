@@ -5,10 +5,10 @@
 
 - [Test Plan](./1_0_testing_plan.md)
 - [Domino Setup](../README.md)
-- [Phase 2 Testing Details](./1_1_phase_2_testing_details.md)
-- [Intro to RAVEs (Three Layers)](./1_2_three_layers_of_raves.md)
-- [Sample Code for Creating RAVEs](./rave_templates)
-- [RAVE Library Repo](https://github.com/unytco/rave_library)
+- [Testing Documentation, Phase 3](./3_0_phase_3_testing_details.md)
+- [Domino Dictionary](./3_2_domino-dictionary.md)
+- [Intro to Smart Agreements (Three Layers)](./3_1_intro_to_smart_agreements.md)
+- [Templates and Smart Agreements Library Repo](https://github.com/unytco/rave_library)
 - [Feedback](https://github.com/orgs/unytco/projects/5/views/1)
 
 

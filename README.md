@@ -11,6 +11,14 @@
 - [RAVE Library](https://github.com/unytco/rave_library)
 - [Feedback Board](https://github.com/orgs/unytco/projects/5/views/1)
 
+- [Test Plan](./testing_docs/1_0_testing_plan.md)
+- [Domino Setup](./README#installation.md)
+- [Testing Documentation, Phase 3](./testing_docs/3_0_phase_3_testing_details.md)
+- [Domino Dictionary](./testing_docs/3_2_domino-dictionary.md)
+- [Intro to Smart Agreements (Three Layers)](./testing_docs/3_1_intro_to_smart_agreements.md)
+- [Templates and Smart Agreements Library Repo](https://github.com/unytco/rave_library)
+- [Feedback](https://github.com/orgs/unytco/projects/5/views/1)
+
 ## Intro
 Domino is a Holochain based application for creating agent-centric, peer-to-peer, Mutual Credit accounting systems with smart contract like functionality.
 
@@ -27,11 +35,11 @@ Download the appropriate version for your system.
 
 | Releases    | 
 | --------    | 
-|    [macOS x84 (intel)](https://github.com/unytco/domino-releases/releases/download/v0.10.0/co.unyt.domino-0.10.0-x64.dmg)  |
-|    [macOS arm64 (silicon)](https://github.com/unytco/domino-releases/releases/download/v0.10.0/co.unyt.domino-0.10.0-arm64.dmg)    |
-|    [Linux Debian](https://github.com/unytco/domino-releases/releases/download/v0.10.0/co.unyt.domino_0.10.0_amd64.deb)  (recomended)  | 
-|    [Linux AppImage](https://github.com/unytco/domino-releases/releases/download/v0.10.0/co.unyt.domino-0.10.0.AppImage)   (read note below) | 
-|    [Windows](https://github.com/unytco/domino-releases/releases/download/v0.10.0/co.unyt.domino-0.10.0-setup.exe)    | 
+|    [macOS x84 (intel)](https://github.com/unytco/domino-releases/releases/download/v0.13.0/co.unyt.domino-0.13.0-x64.dmg)  |
+|    [macOS arm64 (silicon)](https://github.com/unytco/domino-releases/releases/download/v0.13.0/co.unyt.domino-0.13.0-arm64.dmg)    |
+|    [Linux Debian](https://github.com/unytco/domino-releases/releases/download/v0.13.0/co.unyt.domino_0.13.0_amd64.deb)  (recomended)  | 
+|    [Linux AppImage](https://github.com/unytco/domino-releases/releases/download/v0.13.0/co.unyt.domino-0.13.0.AppImage)   (read note below) | 
+|    [Windows](https://github.com/unytco/domino-releases/releases/download/v0.13.0/co.unyt.domino-0.13.0-setup.exe)    | 
 |    [Android]() (no release available)    |
 |    [iOS]() (no release available)    |
 

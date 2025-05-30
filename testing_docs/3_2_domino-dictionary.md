@@ -3,11 +3,11 @@
 #### links to related docs
 
 - [Test Plan](./1_0_testing_plan.md)
-- [HFvZ Setup](../README.md)
+- [Domino Setup](../README.md)
 - [Testing Documentation, Phase 3](./3_0_phase_3_testing_details.md)
-- [Domino Dictionary](./domino-dictionary.md)
-- [Intro to RAVEs (Three Layers)](./1_2_three_layers_of_raves.md)
-- [RAVE Library Repo](https://github.com/unytco/rave_library)
+- [Domino Dictionary](./3_2_domino-dictionary.md)
+- [Intro to Smart Agreements (Three Layers)](./3_1_intro_to_smart_agreements.md)
+- [Templates and Smart Agreements Library Repo](https://github.com/unytco/rave_library)
 - [Feedback](https://github.com/orgs/unytco/projects/5/views/1)
 
 ## A glossary of terms related to Domino
