@@ -6,7 +6,7 @@
 ## Related docs
 
 - [Test Plan](./testing_docs/1_0_testing_plan.md)
-- [Domino Setup](./README#installation.md)
+- [Domino Setup](./README.md)
 - [Testing Documentation, Phase 3](./testing_docs/3_0_phase_3_testing_details.md)
 - [Domino Dictionary](./testing_docs/3_2_domino-dictionary.md)
 - [Intro to Smart Agreements (Three Layers)](./testing_docs/3_1_intro_to_smart_agreements.md)
