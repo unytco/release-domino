@@ -218,7 +218,7 @@ ADMIN
           - Outside Currency Name
           - Outside Currency Symbol
           - Service Network Admnistrators
-        - Service Network Config Window {TODO: Change from Lane Definition in UI}
+        - Service Network Config Window (Previously "Lane Definition". UI update in progress)
           - Effective Start Date
           - Expiration Date
         - Special Agents
@@ -602,7 +602,7 @@ An Agreement Code Template enables a particular set of basic rules to be re-used
 
 To create one, give your Agreement Code Template a Title, define those three sections, and then click Create Template.
 
-For inspiration, check out other Templates in the Library in Domino itself or view examples in the [Agreement Code Templates Library](https://github.com/unytco/rave_library?tab=readme-ov-file) {TODO: Update link} on github.
+For inspiration, check out other Templates in the Library in Domino itself or view examples in the [Agreement Code Templates Library](https://github.com/unytco/rave_library)
 
 Once an Agreement Code Template has been created by any agent (with admin privileges) in the Domino Alliance, it will be made available to everyone running the software and will be published as a new row in the Agreement Code Library.
 
@@ -617,9 +617,9 @@ CODE, IP SCHEMA, AND OP SCHEMA.
 
 CODE displays the Execution Code - i.e. the ways that Inputs will be Transformed into Outputs.
 
-IP SCHEMA {TODO: check vocab update} displays the required structure of the inputs.
+IP SCHEMA displays the required structure of the inputs. (Previously IP Signature. UI update in progress.)
 
-OP SCHEMA {TODO: check vocab update} displays the required structure of the outputs.
+OP SCHEMA displays the required structure of the outputs. (Previously OP Signature. UI update in progress.)
 
 #### Create a Smart Agreement from an Agreement Code Template
 
@@ -638,22 +638,13 @@ Give this particular Smart Agreement a human readable Title for easy reference a
 
 ##### EXECUTION RULES
 
-###### One Time Run {TODO: Change to
-
-Single Execution (toggle in between) Multiple Executions
-}
+###### One Time Run
 
 To create a Smart Agreement which can be Executed only once, select One Time Run / Single Execution.
 
-To create a Smart Agreement which can be Executed multiple times, each time with the Executor gather the inputs that are available at that time. Note that inputs that have been processed in a prior execution would no longer be available, though the output of a prior execution might be available as an input for a subsequent execution.
+To create a Smart Agreement which can be Executed multiple times, the Executor will gather the inputs that are available at that time. Note that inputs that have been processed in a prior execution would no longer be available, though outputs from a prior execution (in the SAVED that documents that execution) might be available as an input for a subsequent execution.
 
 ###### Aggregate Execution
-
-{TODO: Decide and change to 
-Pre-Defined Max # of Inputs
-(toggle in between)
-Aggregate Inputs OR Undefined Max # of Inputs
-}
 
 Aggregate Execution enables the Executor to gather multiple Inputs that have been parked on the Smart Agreement and process them all as part of a single Execution. This supports bulk processing of inputs.
 
@@ -732,15 +723,11 @@ We are currently considering getting rid of Custom, and creating a more rich set
 
 Let us know if you are interested in that.
 
-Once a Smart Agreement has been created, it appears in the Agreement Code Library {TODO: Check alternate naming: Agreements and Templates Library} under the Agreement Code Template from which it is derived.
+Once a Smart Agreement has been created, it appears in the Agreement Code Library under the Agreement Code Template from which it is derived.
 
 ##### Examples and Guidance for Creating Custom Smart Agreements
 
 We want to help you create custom Agreement Code Templates and Smart Agreements that you believe might be useful in your context. To that end, we have created a Templates and Agreements Library as a Github Repository. It has some additional examples and guidance and we would love to have you create new Templates and Agreements, try them out in Domino and add them to the [Templates and Agreements Library](https://github.com/unytco/rave_library). This is a Repo that will enable sharing across Domino Accounting Alliances enabling a wider community of projects to view, play with, and gain inspiration from one anothers' Smart Agreement efforts.
-
-{TODO:
-Rename this RAVE Library and update name and URL here
-}
 
 For a summary and guidance, start by looking at the comments at the top of the execution_code.rhai file in any particular Template. Any example Smart Agreements should be stored in an Agreements directory within each particular Agreement Code Template directory.
 
@@ -787,7 +774,7 @@ a Conversion Table, a Recipe, and a Code Sheet. Each of these could be used to d
 
 ##### Create a Conversion Table
 
-Creating a Conversion Table involves defining the number of Service Units required to equate to 1 Fuel Credit. This can then be referred to from within a Smart Agreement, resulting in a fixed price in Fuel Credits for a specific service. {TODO: get bug fixed and then review this language for accuracy}
+Creating a Conversion Table involves defining the number of Service Units required to equate to 1 Fuel Credit. This can then be referred to from within a Smart Agreement, resulting in a fixed price in Fuel Credits for a specific service. 
 
 ##### Create a Recipe
 
@@ -806,7 +793,7 @@ Price sheets aren't the only kind of Data Record that you can create. The "Add N
 In the DATA RECORDS TABLE, each row will display the following details for a specific Data Record:
 ID, PREVIEW, DATA, and TIMESTAMP.
 
-##### ID {TODO: change to DR ID}
+##### DR ID (Previously ID. UI update in progress.)
 
 DR ID displays the Identifier for the Data Record. Hovering over it will display the DR ID. Clicking it will copy the DR ID to the clipboard.
 
@@ -934,9 +921,9 @@ Name of the Service Networks Outside Currency (if any).
 
 Symbol of the Service Network's Outside Currency.
 
-###### SERVICE NETWORK ADMINISTRATORS {TODO: update old "Lane Editors" name in UI}
+###### SERVICE NETWORK ADMINS (Previously "Lane Editors". UI update in progress)
 
-Agents authorized to serve as Service Network Administrators can make changes to this Service Network Configuration.
+Agents authorized to serve as Service Network Admins can make changes to this Service Network Configuration.
 
 ##### SERVICE NETWORK CONFIG WINDOW
 
@@ -966,15 +953,15 @@ This access to credit may enable participating Service Networks to capitalize in
 
 In order for a Service Network to receive a line of credit, they need to assign an Agent (a public key) as the steward of their credit line. We call this their Service Infrastructure Account. As the Service Network establishes a credit limit in accordance with that Domino Alliance's policies, the Service Infrastructure Account is the agent to whom that credit limit gets allocated. This agent can then spend up to that credit limit.
 
-###### SALES AGENT {TODO: Have Joel review.}
+###### SALES AGENT
 
-Service Networks that have an Outside Currency and want to offer a way for holders of that Outside Currency to purchase Fuel Credits need to assign an agent that is authorized to perform such sales on behalf of the Service Network. The Sales Agent is responsible for obtaining the proof of deposit in the Outside Currency, whether that proof is through a Blockchain Transaction, a Bank Transaction or in some other manner, and serve as Executor of the Transaction where that External Proof is being provided and Fuel Credits (initially owned by that Service Network) are being transferred to the Purchaser.
+Service Networks that have an Outside Currency and want to offer a way for holders of that Outside Currency to purchase Fuel Credits, need to assign an agent that is authorized to perform such sales on behalf of the Service Network. The Sales Agent is responsible for obtaining the proof of deposit in the Outside Currency, whether that proof is through a Blockchain Transaction, a Bank Transaction or in some other manner, and serve as Executor of the Transaction where that External Proof is being provided and Fuel Credits (initially owned by that Service Network) are being transferred to the Purchaser.
 
 By default, this same Sales Agent plays the same role when the reverse course of action is being followed. A Service Provider who has earned Fuel Credits through work in that Service Network can Redeem those Fuel Credits for that Service Network's Outside Currency. During this Redemption process, the Sales Agent similarly Executes the transaction where the Fuel Credits are being received by the Service Network and authorizes the payment out to the Redeemer through the appropriate method in the relevant Outside Currency.
 
 ##### SMART AGREEMENTS
 
-Service Networks will generally make use of 3 different primary forms of Smart Agreements: 
+Service Networks will generally make use of 3 different primary forms of Smart Agreements:
 a Purchase Agreement, a Redemption Agreement and a Proof of Service Agreement.
 
 To add any of these Smart Agreements, first create the specific Smart Agreement in the Library and then copy the Agreement ID and paste it into the field for the relevant agreement.  There are some examples already published in the library that you can Clone and modify to meet your Service Network's needs.
@@ -983,7 +970,7 @@ To add any of these Smart Agreements, first create the specific Smart Agreement 
 
 This is the agreement governing the Purchase of Fuel Credits by Purchasers from the Service Network. They pay with a pre-defined Outside Currency according to the pricing algorithm defined by the Domino Alliance. The purchase must be Executed by the Service Network's Sales Agent.
 
-###### REDEMPTION OF UNITS {TODO: Have Joel Review}
+###### REDEMPTION OF UNITS
 
 This is the agreement governing the Redemption of Fuel Credits by Service Providers to the Service Network. Sales and Redemptions are really a means of enabling parties to "Purchase From" and "Redeem To" that particular Service Network's Fuel Credit Treasury within the Domino Alliance. Redeemers receive from the Service Network the pre-defined Outside Currency according to the pricing at which previous Sales of Fuel Credits had occurred. The Redemption must be Executed by the Service Network's Sales Agent.
 
@@ -1001,7 +988,7 @@ This principle of Redemption support only for Service Providers helps ensure tha
 
 ##### VIEW SERVICE NETWORK CONFIG
 
-In the Service Networks section of the Admin tab, the Details button {TODO: Change to "View Config"} will open the Service Network Config modal.
+In the Service Networks section of the Admin tab, the View Config button (Previously "Details" button. UI update in progress.) will open the Service Network Config modal.
 
 ##### SERVICE NETWORK CONSOLE
 

@@ -53,7 +53,7 @@ Publishing Agreement Code Templates allows the primary logic built into a Smart 
 
 **Input Schema:** Needs to be a JSON Schema that can be used to define structure of the expected inputs into the `execution_code` and can be used to validate the input in any resulting Smart Agreement.
 
-**Execution Code:** This is the code that will be executed to transform inputs into outputs and publish them in a manner that can be validated as appropriate by any other participant in a `SAVED` (Smart Agreement Verifiable Execution Document). Currently we support executing [RHAI](https://rhai.rs) code. You can find some [examples here](https://github.com/unytco/rave_library/tree/main/library).
+**Execution Code:** This is the code that will be executed to transform inputs into outputs and publish them in a manner that can be validated as appropriate by any other participant in a `SAVED` (Smart Agreement Verifiable Execution Doc). Currently we support executing [RHAI](https://rhai.rs) code. You can find some [examples here](https://github.com/unytco/rave_library/tree/main/library).
 
 **Output Schema:** Similar to the input Schema this needs to be a JSON Schema and would be the expected output of the Execution Code
 
@@ -65,7 +65,7 @@ For the code in an Agreement Code Template to become a Smart Agreement that can 
 **Inputs:** The fields defined in the template's Input Schema must be mapped to some source, either: 1) provided by an agent in a Role, 2) provided by the executor at runtime, 3) a fixed value, or 4) a result of a query of the content in the app's shared storage.
 
 ## 3. SAVED (Smart Agreement Verifiable Execution Doc)
-When an executor runs an agreement, they commit a record of its execution which can be verifed as valid by any agent. This document, the SAVED is the product of the execution. It contains the inputs used, the link to the Smart Agreement being executed, and the outputs it produced.
+When an executor runs an agreement, they commit a record of its execution which can be verifed as valid by any agent. This document -- the SAVED -- is the product of the execution. It contains the inputs used, the link to the Smart Agreement being executed, and the outputs it produced.
 
 ### Validation of a SAVED:
 **Execution Authority:** This was executed by an agent who meets the authorization requirements defined in the Smart Agreement.
@@ -92,7 +92,7 @@ Next, if you haven't already, check out the [Phase 3 Testing Details](./3_0_phas
 
 ## SAVED: A Record of Verifiable Execution
 
-An Execution of the Smart Agreement generates a Record, or Documentation of the Execution. This Execution Document can be examined by any other Alliance member, who can verify that it has been executed validly. Consequently, we describe the resulting Record of Execution as a "Smart Agreement, Verifiably Executed and Documented" or SAVED. So even though a particular party performed the execution, any party can independently verify that the execution was done appropriately.
+An Execution of the Smart Agreement generates a Record, or Documentation of the Execution. This Execution Document can be examined by any other Alliance member, who can verify that it has been executed validly. Consequently, we describe the resulting Record of Execution as a "Smart Agreement Verifiable Execution Doc" or SAVED. So even though a particular party performed the execution, any party can independently verify that the execution was done appropriately.
 
 A SAVED is produced after an Execution of a Smart Agreement.  It is the primary artifact resulting from that Execution, and is published by its author, the Executor, into the shared space of the Domino Accounting Alliance for a group of peers to validate, store and serve, and for any peer to reference and rely upon.
 

@@ -117,8 +117,8 @@
 **Sales Agent (in Service Network)**
 : An Agent authorized within a Service Network to manage the sale of Fuel Credits for an Outside Currency and process redemptions.
 
-**SAVED (Smart Agreement Verifiably Executed & Documented) / previously RAVE (Record of Agreement Verifiably Executed)(VET - Verifiably Executed Transformation)**
-: The immutable documentation resulting from the valid execution of a Smart Agreement by an Executor, published for verification.
+**SAVED (Smart Agreement Verifiable Execution Doc)**
+: The immutable documentation resulting from the valid execution of a Smart Agreement by an Executor, published for verification. Any application participant can validate that the Smart Agreement was executed appropriately.
 
 **Service Fee**
 : A charge that can be levied for services rendered or transactions processed. Can be defined within Smart Agreements.
@@ -126,13 +126,13 @@
 **Service Network**
 : An organization within a Domino Alliance, set up by that Alliances Global Admin, that defines its own configuration, services, and typically uses specific Smart Agreements for its operations. 
 
-**Service Network Console** {TODO: change UI to match. Currently Update Service-Network Properties}
+**Service Network Console** (Previously Update Service-Network Properties. UI update in progress.)
 : The current name for the admin interface where a Service Network Administrator defines and stewards a Service Network's Configuration.
 
-**Service Network Admin** {TODO: change UI to match. Currently Lane Editors}
+**Service Network Admin** (Previously Lane Editor(s). UI update in progress.)
 : An Agent authorized by the Global Admin to manage and make changes to a specific Service Network's Configuration.
 
-**Service Network Config** {TODO: change UI to match. Currently Service-Network Details}
+**Service Network Config** (Previously Update Service-Network Details. UI update in progress.)
 : The specific ruleset for a Service Network, effective for a defined period, governing interactions with its associated Smart Agreements.
 
 **Service Units**
@@ -155,21 +155,3 @@
 
 **Unclaimed (Credits)**
 : Fuel Credits that have been allocated or sent to an Agent but have not yet been formally accepted by them into their balance.
-
-
-
-TO ADD
-
-Agent Centric
-
-Holochain
-
-Holographic
-
-Parallel Transaction Processing
-
-Sets of Actions vs transactions
-
-The name of a particular implementation of Domino software being run by a Domino Accounting Alliance,
-
-Smart Agreements Github Repo (new name for RAVE Library)
