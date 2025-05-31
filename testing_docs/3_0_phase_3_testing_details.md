@@ -10,7 +10,7 @@
 - [Templates and Smart Agreements Library Repo](https://github.com/unytco/rave_library)
 - [Feedback](https://github.com/orgs/unytco/projects/5/views/1)
 
-**WARNING: This doc contains details!** 
+**WARNING: This doc contains details!**
 
 Feel free to use the outline view available in the upper right to get an overview of the different content covered.
 
@@ -18,7 +18,7 @@ For older versions, see [Phase 1 testing details](https://github.com/unytco/hfvz
 
 ## Phase 3 Testing Orientation
 
-### Overview of context:
+### Overview of context
 
 Domino, by Unyt Accounting is decentralized software for microtransaction accounting.
 
@@ -38,15 +38,15 @@ Domino Features:
 
 Domino can account for both payments and for services provided in accordance with smart agreements custom designed to meet your communities needs.
 
-There is no one global Domino app. Instead, each community runs its own separate stand-alone software network, operating on the machines of -- and governed by -- its participants, typically with support from (though not control by) Unyt Accounting. We refer to these stand-alone, peer-to-peer applications as Domino Accounting Alliances.
+There is no one global Domino app. Instead, each community runs its own separate stand-alone software network, operating on the machines of -- and governed by -- its participants, typically with support from (though not control by) Unyt Accounting. We refer to these stand-alone, peer-to-peer applications as Domino Accounting Alliances (or just Alliances for short).
 
-Each Alliance has its own name, its own payment unit of account (the general name we use is Fuel or Fuel Credits), and its own sets of smart agreements that are used and enforced -- all in a decentralized manner.
+Each Alliance has its own name, its own payment unit of account (the general name we use is Fuel Credits), and its own sets of smart agreements that are used and enforced -- all in a decentralized manner.
 
-For Testing purposes, all testers will be participating in the same Domino Alliance, which uses Holo Fuel or HF as its Fuel Credits. As a result, all testers are joining a single peer network and will be able to send and receive credits from anyone else in the test network as well as see and interact with any of the smart agreements that other testers create.
+For Testing purposes, all testers will be participating in the same Domino Accounting Alliance, which uses Holo Fuel or HF as its Fuel Credits. As a result, all testers are joining a single peer network and will be able to send and receive credits from anyone else in the test network as well as see and interact with any of the smart agreements that other testers create.
 
 All of you will be using the software with the permissions of a super user, with the ability to not only interact with Smart Agreements and send direct transactions, but the ability to create new Smart Agreements as well.
 
-Since this is a shared application and social space, any Agreement Code, Smart Agreement or Smart Agreement Verifiable Execution Document (SAVED) that you create will be visible to other testers.
+Since this is a shared application and social space, any Agreement Code, Smart Agreement or Smart Agreement Verifiable Execution Doc (SAVED) that you create will be visible to other testers.
 
 Domino is being built by a small, focused team, several of whom helped found Holochain, the framework for building peer-to-peer applications that powers Domino's ability run as a distributed application.
 
@@ -446,7 +446,7 @@ The transaction, if and when completed, will result in an increase in your Fuel 
 Outgoing
 The transaction, if and when completed, will result in a decrease in your Fuel Credit Balance.
 
-###### TYPE {TODO: Change to STATE / STAGE once UI is updated}
+###### TYPE
 
 Spend
 A sending of credits by the Spender to a Receiver. 
@@ -460,8 +460,8 @@ A submission of content to a Smart Agreement, whether an invoice, an attestation
 ParkedSpend
 A sending of credits by the Spender to a Smart Agreement.
 
-RAVE (SAVED)
-The Document Recording a specific Verifiable Execution of a Smart Agreement. Smart Agreement, Verifiably Executed (Documentation).
+SAVED
+The Document Recording a specific Verifiable Execution of a Smart Agreement. SAVED stands for Smart Agreement Verifiable Execution Doc. In earlier versions, this was referred to as a RAVE.
 
 Accept
 An acceptance of a transaction.
@@ -486,7 +486,7 @@ Clicking on the identicon will copy the Receiver's public key to your clipboard 
 
 This provides a summary of the transaction information, including details such as the participants and the payload, if any. A payload might be as simple as a note that was added by the Spender when they created the transaction.
 
-###### TIMESTAMP {TODO: Change to ELAPSED after UI is updated}
+###### ELAPSED (Previously TIMESTAMP. UI is being updated.)
 
 Timestamp shows an approximation of the amount of time that has passed since the transaction had its previous action taken.
 
@@ -514,11 +514,11 @@ When you have been assigned to Execute one or more Smart Agreements, each Agreem
 
 There are three columns: EA ID, EA NAME and ACTIONS.
 
-###### EA ID {TODO: change to SA ID}
+###### SA ID (Previously EA ID
 
 Displays the identicon for the Smart Agreement. Hovering over the identicon will display the ID (the Hash) of the Smart Agreement. Clicking on the identicon will copy the ID to the clipboard.
 
-###### EA NAME {TODO: change to SA TITLE or Agreement Title}
+###### SA TITLE (previously EA NAME. UI is being updated)
 
 Displays the Smart Agreement Title.
 
@@ -528,23 +528,23 @@ Button to Execute the Agreement. When clicked, an Execute Agreement modal gets d
 
 At present, there is not an automatic check to make sure that all required parties have interacted with the Smart Agreement. If you attempt to Execute the agreement and not all conditions are satisfied, Execution should fail. You can try to execute again at a later date.
 
-##### Executed RAVEs {TODO: decide whether to change to SAVED - Smart Agreement Verifiable Execution Document | Smart Agreement Verifiable Execution Documentation | Smart Agreement Verifiably Executed Documentation}
+##### Executed SAVEDs (previously named Executed RAVEs. UI is being Updated)
 
-This table shows completed Executions of Agreements (RAVEs/SAVEDs) that you have Executed.
+This table shows completed Executions of Agreements (SAVEDs) that you have Executed.
 
 The columns include: ID, EA, EA TITLE, AMOUNT, SPENDER, RECEIVER, DETAILS, TIMESTAMP.
 
-###### {TODO: SAVED ID} ID
+###### SAVED ID (previously ID. UI is being updated)
 
-Displays the Identicon of the RAVE/SAVED. Hovering displays the Address of the Execution Document and clicking the Identicon will copy the address to the clipboard. This address to refer to or to retreive the Execution Documentation (RAVE/SAVED) from this Domino Alliance's distributed storage.
+Displays the Identicon of the SAVED. Hovering displays the Address of the Execution Document and clicking the Identicon will copy the address to the clipboard. This address allows peers to refer to or retreive the SAVED from this Domino Accounting Alliance's distributed storage.
 
-###### {TODO: SA ID} EA
+###### SA ID (previously EA. UI is being updated)
 
 Displays the Identicon of the Smart Agreement that was executed to create this RAVE/SAVED. Again, hovering will display the address of the agreement. Clicking will copy that address to the clipboard.
 
-###### {TODO: SA TITLE} EA TITLE
+###### SA TITLE (Previously EA TITLE. UI is being Updtated)
 
-Displays the title of the Smart Agreement that was executed to create this RAVE/SAVED (verifiable execution documentation).
+Displays the title of the Smart Agreement that was executed to create this SAVED (the verifiable execution doc).
 
 ###### AMOUNT
 
@@ -560,11 +560,11 @@ Displays the Identicon of the Receiver, if there is a Receiver that Fuel Credits
 
 ###### DETAILS
 
-Click on the Details document to display a modal with the Transaction Details of the RAVE/SAVED, including information about Participants such as Spenders, Receivers or other Roles, Transaction Information such as the Total Fuel Credits Transferred In/Out, and the Definition (the set of Global Governing Rules that were in place for this Domino Alliance at the time of the Smart Agreement Creation.)
+Click on the Details document to display a modal with the Transaction Details of the SAVED, including information about Participants such as Spenders, Receivers or other Roles, Transaction Information such as the Total Fuel Credits Transferred In/Out, and the Definition (the set of Global Governing Rules that were in place for this Domino Alliance at the time of the previous Action.)
 
-###### TIMESTAMP {TODO change to ELAPSED}
+###### ELAPSED (Previously TIMESTAMP. UI is being updated)
 
-The Timestamp of the Execution of the Smart Agreement that resulted in the creation of the RAVE/SAVED. This timestamp is from the perspective of the Executor themselves - i.e. yours.
+The Timestamp of the Execution of the Smart Agreement that resulted in the creation of the SAVED. This timestamp is from the perspective of the Executor themselves - i.e. yours.
 
 ### LIBRARY
 
