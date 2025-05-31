@@ -65,7 +65,21 @@ For the code in an Agreement Code Template to become a Smart Agreement that can 
 **Inputs:** The fields defined in the template's Input Schema must be mapped to some source, either: 1) provided by an agent in a Role, 2) provided by the executor at runtime, 3) a fixed value, or 4) a result of a query of the content in the app's shared storage.
 
 ## 3. SAVED (Smart Agreement Verifiable Execution Doc)
-When an executor runs an agreement, they commit a record of its execution which can be verifed as valid by any agent. This document -- the SAVED -- is the product of the execution. It contains the inputs used, the link to the Smart Agreement being executed, and the outputs it produced.
+When an agent execusts a Smart Agreement, they generate a record of the execution which can be verifed as valid by any agent. This document is the product of the execution. It contains the inputs used, the link to the Smart Agreement being executed, and the outputs it produced.
+
+The SAVED can be examined by any other Alliance member, who can verify that it has been executed validly. Consequently, we describe the resulting Record of Execution as a "Smart Agreement Verifiable Execution Doc" or SAVED. Again, even though a particular party performed the execution, any party can independently verify that the execution was done appropriately.
+
+A SAVED is produced *after* an Execution of a Smart Agreement.  It is the primary artifact resulting from that Execution, and is published by its author, the Executor, into the shared space of the Domino Accounting Alliance for a group of peers to validate, store and serve, and for any peer to reference and rely upon.
+
+### What role does a SAVED play in Payments?
+
+Not all Smart Agreements involve Spending and Allocating Fuel Credits.  However, Spending and Allocating Fuel Credits to some Receiver in accordance with some particular custom logic is a very common way to use Smart Agreements. After the Execution of such a Smart Agreement, the SAVED will allocate Fuel Credits to the appropriate Receiver (or Receivers). However, that Receiver will still need to Accept the Fuel Credits before their account will be credited.
+
+This is interesting in that, the Execution is complete, the Fuel Credits have been allocated, but the Receiver themselves has to exercise their agency and choose whether to receive the credits. When they do Accept, their device also performs an independent check of the validity of the transaction. If the transaction is invalid, their device will reject the transaction. If it is valid, their device will cryptographically sign the Acceptance of the transaction.
+
+As a result, others aren't able to force credits onto you that you don't wish to accept. And others that attempt to commit fraud on your behalf require your collusion -- and your taking of responsibility as well.
+
+Such activity would quickly get both them and you kicked out of the application by peers, who one-by-one, would turn away from you automatically for having violated the rules of the Accounting Alliance.
 
 ### Validation of a SAVED:
 **Execution Authority:** This was executed by an agent who meets the authorization requirements defined in the Smart Agreement.
@@ -81,25 +95,3 @@ When an executor runs an agreement, they commit a record of its execution which 
 **Matching Inputs & Outputs:** The number of units included as inputs, must match the total number of units in the outputs. Like the first law of thermodynamics, a SAVED must not create or destroy units.
 
 Next, if you haven't already, check out the [Phase 3 Testing Details](./3_0_phase_3_testing_details.md)
-
-
-
-
-
-
-
-
-
-## SAVED: A Record of Verifiable Execution
-
-An Execution of the Smart Agreement generates a Record, or Documentation of the Execution. This Execution Document can be examined by any other Alliance member, who can verify that it has been executed validly. Consequently, we describe the resulting Record of Execution as a "Smart Agreement Verifiable Execution Doc" or SAVED. So even though a particular party performed the execution, any party can independently verify that the execution was done appropriately.
-
-A SAVED is produced after an Execution of a Smart Agreement.  It is the primary artifact resulting from that Execution, and is published by its author, the Executor, into the shared space of the Domino Accounting Alliance for a group of peers to validate, store and serve, and for any peer to reference and rely upon.
-
-Not all Smart Agreements involve Spending and Allocating Fuel Credits.  However, Spending and Allocating Fuel Credits to some Receiver in accordance with some particular custom logic is a very common way to use Smart Agreements. After the Execution of such a Smart Agreement, the SAVED will allocate Fuel Credits to the appropriate Receiver (or Receivers). However, that Receiver will still need to Accept the Fuel Credits before their account will be credited.
-
-This is interesting in that, the Execution is complete, the Fuel Credits have been allocated, but the Receiver themselves has to exercise their agency and choose whether to receive the credits. When they do Accept, their device also performs an independent check of the validity of the transaction. If the transaction is invalid, their device will reject the transaction. If it is valid, their device will cryptographically sign the Acceptance of the transaction.
-
-Others aren't able to force credits onto you that you don't wish to accept. And others that attempt to commit fraud on your behalf require your collusion -- and your taking of responsibility as well.
-
-Such activity would quickly get both them and you kicked out of the application by peers, who one-by-one, would turn away from you automatically, for having violated the rules of the Accounting Alliance.
