@@ -25,17 +25,15 @@ This [Test Plan](./testing_docs/1_0_testing_plan.md) document gives a bit of a o
 
 Download the appropriate version for your system.
 
-
-
-| Releases    | 
-| --------    | 
-|    [macOS x84 (intel)](https://github.com/unytco/domino-releases/releases/download/v0.13.0/co.unyt.domino-0.13.0-x64.dmg)  |
-|    [macOS arm64 (silicon)](https://github.com/unytco/domino-releases/releases/download/v0.13.0/co.unyt.domino-0.13.0-arm64.dmg)    |
-|    [Linux Debian](https://github.com/unytco/domino-releases/releases/download/v0.13.0/co.unyt.domino_0.13.0_amd64.deb)  (recomended)  | 
-|    [Linux AppImage](https://github.com/unytco/domino-releases/releases/download/v0.13.0/co.unyt.domino-0.13.0.AppImage)   (read note below) | 
-|    [Windows](https://github.com/unytco/domino-releases/releases/download/v0.13.0/co.unyt.domino-0.13.0-setup.exe)    | 
-|    [Android]() (no release available)    |
-|    [iOS]() (no release available)    |
+| Releases                 |
+|--------------------------|
+| [macOS x64 (Intel)](https://downloads.unyt.co/macos-x64)            |
+| [macOS arm64 (Silicon)](https://downloads.unyt.co/macos-arm64)      |
+| [Linux Debian](https://downloads.unyt.co/linux-deb) (recommended)    |
+| [Linux AppImage](https://downloads.unyt.co/linux-appimage) (read note below) |
+| [Windows](https://downloads.unyt.co/windows)                         |
+| [Android](#) (no release available)                                  |
+| [iOS](#) (no release available)                                      |
 
 
 > [!IMPORTANT]
