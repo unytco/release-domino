@@ -4,12 +4,14 @@
 
 
 ## Related docs
+
 - [Test Plan](./testing_docs/1_0_testing_plan.md)
-- [Phase 2 Testing Details](./testing_docs/2_0_phase_2_testing_details.md)
-- [How to install Domino app?](./README.md#installation)
-- [Intro to RAVEs (Three Layers)](./testing_docs/1_2_three_layers_of_raves.md)
-- [RAVE Library](https://github.com/unytco/rave_library)
-- [Feedback Board](https://github.com/orgs/unytco/projects/5/views/1)
+- [Domino Setup](./README.md)
+- [Testing Documentation, Phase 3](./testing_docs/3_0_phase_3_testing_details.md)
+- [Domino Dictionary](./testing_docs/3_2_domino-dictionary.md)
+- [Intro to Smart Agreements (Three Layers)](./testing_docs/3_1_intro_to_smart_agreements.md)
+- [Templates and Smart Agreements Library Repo](https://github.com/unytco/rave_library)
+- [Feedback](https://github.com/orgs/unytco/projects/5/views/1)
 
 ## Intro
 Domino is a Holochain based application for creating agent-centric, peer-to-peer, Mutual Credit accounting systems with smart contract like functionality.
@@ -23,17 +25,15 @@ This [Test Plan](./testing_docs/1_0_testing_plan.md) document gives a bit of a o
 
 Download the appropriate version for your system.
 
-
-
-| Releases    | 
-| --------    | 
-|    [macOS x84 (intel)](https://github.com/unytco/domino-releases/releases/download/v0.10.0/co.unyt.domino-0.10.0-x64.dmg)  |
-|    [macOS arm64 (silicon)](https://github.com/unytco/domino-releases/releases/download/v0.10.0/co.unyt.domino-0.10.0-arm64.dmg)    |
-|    [Linux Debian](https://github.com/unytco/domino-releases/releases/download/v0.10.0/co.unyt.domino_0.10.0_amd64.deb)  (recomended)  | 
-|    [Linux AppImage](https://github.com/unytco/domino-releases/releases/download/v0.10.0/co.unyt.domino-0.10.0.AppImage)   (read note below) | 
-|    [Windows](https://github.com/unytco/domino-releases/releases/download/v0.10.0/co.unyt.domino-0.10.0-setup.exe)    | 
-|    [Android]() (no release available)    |
-|    [iOS]() (no release available)    |
+| Releases                 |
+|--------------------------|
+| [macOS x64 (Intel)](https://downloads.unyt.co/macos-x64)            |
+| [macOS arm64 (Silicon)](https://downloads.unyt.co/macos-arm64)      |
+| [Linux Debian](https://downloads.unyt.co/linux-deb) (recommended)    |
+| [Linux AppImage](https://downloads.unyt.co/linux-appimage) (read note below) |
+| [Windows](https://downloads.unyt.co/windows)                         |
+| [Android](#) (no release available)                                  |
+| [iOS](#) (no release available)                                      |
 
 
 > [!IMPORTANT]
@@ -52,11 +52,18 @@ Once installed, set up Domino either with a password or without a password. In e
 NOTE: If you set up with a password and later lose your password, we will NOT be able to help you regain access to your account. You will need to delete the software and reinstall to create a fresh account to continue testing. See below section on **Starting Fresh**.
 
 ## Setup
-Note: The release for your operating system may not be code signed yet, so you may need to right click to open the file.
+Note: The release for your operating system may not be code signed yet, so you may need to right click to open the file. In Mac, because you downloaded the software directly and not through Apple's App Store, you may need to open the System Settings and go to Privacy and Security, scroll down to Security and give Domino permission to run.
 
 When you open Domino on your operating system for the first time, it will create a set of public and private keys for you that you can use to interact with others. These are stored in a private keystore (Lair) on your own machine and are used during future uses. 
 
-To get started, you will want to install the software on a couple of devices so you can try sending, executing, and receiving transactions. 
+To get started, you can try sending, executing, and receiving transactions either with friends that have also downloaded Domino, or with team members from the Development Team.
+
+for v0.13.0:
+Matthew's Public Key is:
+`uhCAkOKFD_M3OuSQ8q-oEMSC-gKOHIJuchdp8eS1W1jnWPnWAW65F`
+
+Jarod's Public Key is:
+`uhCAkBNcC5msV7syB9I71XS18GMQDugPMQ6N6XQsU2cVHr5Y-YgWc`
 
 ## Starting Fresh
 Details on removal and reinstallation.
@@ -65,9 +72,9 @@ If you want to start fresh (whether because you lost a password or for another r
 
 Here are the steps for Uninstalling, Deleting Local Data and Reinstalling the app:
 
-1. Close the app. 
+1. Close the app.
 
-2. Delete the domino file from your applications folder. 
+2. Delete the domino file from your applications folder.
 
 3. Open the Terminal application
 4. In Terminal, type the following two commands and hit enter after each:
@@ -80,12 +87,11 @@ cd ~/Library/Application\ Support
 rm -rf co.unyt.domino
 ```
 
-That co.unyt.domino file had your local data in it. 
+That co.unyt.domino file had your local data in it.
 
 Now that it is deleted, you can again install domino and start fresh with a new account.
 
 Next, dive into the [Test Plan](./testing_docs/1_0_testing_plan.md).
-
 
 ## License
 
