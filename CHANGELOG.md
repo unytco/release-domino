@@ -3,6 +3,18 @@
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.14.0]
+
+### Updated
+
+- DNA upgraded to run on holochain v0.5.2 [#133](https://github.com/unytco/domino/pull/133)
+- DNA: expose endpoitns to be able to create service units on swim-lane gen [#134](https://github.com/unytco/domino/pull/134)
+- bug: progenitor created check updated in validate [#134](https://github.com/unytco/domino/pull/134)
+- Validation document added [#134](https://github.com/unytco/domino/pull/134)
+- updated docs and ui naming updates [#135](https://github.com/unytco/domino/pull/135)
+- improved code comments [#136](https://github.com/unytco/domino/pull/136)
+- service network endpoints to call progenitor for approval [#144](https://github.com/unytco/domino/pull/144)
+
 ## [0.13.0]
 
 ### Added
