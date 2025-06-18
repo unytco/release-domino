@@ -3,10 +3,31 @@
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.15.0]
+
+### Updated
+
+- New field theme that is expected to be a hex string in SwimLaneBasicProperties [#145](https://github.com/unytco/domino/pull/145)
+- Domino: Data Migration for version updates [#147](https://github.com/unytco/domino/pull/147)
+- UI: basic and advanced mode, new request spend modals [#149](https://github.com/unytco/domino/pull/149)
+- code-template versioning [#152](https://github.com/unytco/domino/pull/152)
+
+### Changed
+
+- **Breaking Change:** optimize memory usage by storing units as maps instead of Vec's [#151](https://github.com/unytco/domino/pull/151)
+- **Breaking Change:** create_executable_agreement payload updated to accept tags [#](https://github.com/unytco/domino/pull/)
+
+## [0.14.2]
+
+### Bug
+
+- Fix UI bug on timestamp on completed transaction table
+
 ## [0.14.1]
 
 ### Updated
-- Fix UI bug on Effective start date display correctly  
+
+- Fix UI bug on Effective start date display correctly
 
 ## [0.14.0]
 
