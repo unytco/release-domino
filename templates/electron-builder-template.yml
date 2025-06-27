@@ -29,7 +29,7 @@ mac:
 dmg:
   artifactName: ${name}-${version}-${arch}.${ext}
 linux:
-  appId: ${name}
+  appId: 'co.unyt.domino.main'
   target:
     - AppImage
     - deb
@@ -39,7 +39,7 @@ linux:
   vendor: unyt.co
   synopsis: 'Mutual Credit Accounting System'
   desktop:
-    Name: ${productName}
+    Name: domino
     Comment: Mutual Credit Accounting System
     Categories: Accounting
 appImage:
@@ -47,10 +47,10 @@ appImage:
 deb:
   description: Mutual Credit Accounting System
   desktop:
-    Name: ${productName}
+    Name: domino
     Comment: Mutual Credit Accounting System
     Categories: Accounting
-  packageName: ${productName}
+  packageName: domino
 npmRebuild: false
 # publish:
 #   provider: generic
