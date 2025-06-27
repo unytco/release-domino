@@ -50,7 +50,7 @@ deb:
     Name: ${productName}
     Comment: Mutual Credit Accounting System
     Categories: Accounting
-  packageName: ${name}
+  packageName: ${productName}
 npmRebuild: false
 # publish:
 #   provider: generic
