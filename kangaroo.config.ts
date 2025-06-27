@@ -1,7 +1,7 @@
 import { defineConfig } from './src/main/defineConfig';
 
 export default defineConfig({
-  appId: 'co.unyt.domino',
+  appId: 'co.unyt.domino.main',
   productName: 'domino',
   version: '0.16.0',
   macOSCodeSigning: true,
