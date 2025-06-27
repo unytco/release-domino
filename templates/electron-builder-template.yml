@@ -29,7 +29,7 @@ mac:
 dmg:
   artifactName: ${name}-${version}-${arch}.${ext}
 linux:
-  appId: 'co.unyt.domino'
+  appId: 'co.unyt.domino.main'
   target:
     - AppImage
     - deb
