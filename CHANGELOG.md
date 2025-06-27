@@ -3,6 +3,17 @@
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.16.0]
+
+### Changed
+
+- **Breaking Change:** create_executable_agreement payload updated to accept tags [#](https://github.com/unytco/domino/pull/)
+  - New endpoints: search_executable_agreement and get_all_executable_agreements
+- New Home UI that wraps all the ui skins [#]
+- Handle dynamic credit RAVE, hdk::query handled in instructions [#162](https://github.com/unytco/domino/pull/162)
+- **Breaking Change:** dna bumped to run on holochain v0.5.3
+- piecework_cli updated to domino_cli for latest work [#164](https://github.com/unytco/domino/pull/164)
+
 ## [0.15.0]
 
 ### Updated
@@ -133,7 +144,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - ux: add a toggle icon to the pool display to expand the pool display [#90](https://github.com/unytco/domino/pull/90)
 - ui: setup common styles for the interface [#90](https://github.com/unytco/domino/pull/90)
 - export rave instructions from the rave engine crate [#91](https://github.com/unytco/domino/pull/91)
-- create a client for the domino app called `piecework_cli`
+- create a client for the domino app called `domino_cli`
 - Executable Agreement: add a new field `title` [#92](https://github.com/unytco/domino/pull/95)
 - ui: Persist Content in Agreement Interaction Modal(s) [#96](https://github.com/unytco/domino/pull/96)
 - ui: add a new field `title` to the Executable Agreement table [#97](https://github.com/unytco/domino/pull/97)

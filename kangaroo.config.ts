@@ -3,7 +3,7 @@ import { defineConfig } from './src/main/defineConfig';
 export default defineConfig({
   appId: 'co.unyt.domino',
   productName: 'domino',
-  version: '0.15.0',
+  version: '0.16.0',
   macOSCodeSigning: true,
   windowsEVCodeSigning: false,
   fallbackToIndexHtml: true,
