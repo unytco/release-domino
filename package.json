@@ -1,6 +1,6 @@
 {
-  "name": "co.unyt.domino",
-  "version": "0.16.0",
+  "name": "co.unyt.domino.main",
+  "version": "0.17.0",
   "license": "CAL-1.0",
   "main": "./out/main/index.js",
   "scripts": {
