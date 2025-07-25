@@ -39,7 +39,7 @@ linux:
   vendor: unyt.co
   synopsis: 'Mutual Credit Accounting System'
   desktop:
-    Name: domino
+    Name: Domino webrtc
     Comment: Mutual Credit Accounting System
     Categories: Accounting
 appImage:
@@ -47,10 +47,10 @@ appImage:
 deb:
   description: Mutual Credit Accounting System
   desktop:
-    Name: domino
+    Name: Domino webrtc
     Comment: Mutual Credit Accounting System
     Categories: Accounting
-  packageName: domino
+  packageName: Domino webrtc
 npmRebuild: false
 # publish:
 #   provider: generic
