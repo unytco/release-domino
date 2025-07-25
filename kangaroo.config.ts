@@ -2,7 +2,7 @@ import { defineConfig } from './src/main/defineConfig';
 
 export default defineConfig({
   appId: 'co.unyt.domino.main',
-  productName: 'domino',
+  productName: 'Domino hc webrtc',
   version: '0.18.0-webrtc',
   macOSCodeSigning: true,
   windowsEVCodeSigning: false,
