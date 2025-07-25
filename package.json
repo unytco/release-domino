@@ -1,6 +1,6 @@
 {
   "name": "co.unyt.domino.main",
-  "version": "0.17.0",
+  "version": "0.18.0-webrtc",
   "license": "CAL-1.0",
   "main": "./out/main/index.js",
   "scripts": {
