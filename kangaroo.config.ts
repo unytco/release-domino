@@ -3,7 +3,7 @@ import { defineConfig } from './src/main/defineConfig';
 export default defineConfig({
   appId: 'co.unyt.domino.main',
   productName: 'domino',
-  version: '0.17.0',
+  version: '0.18.0-webrtc',
   macOSCodeSigning: true,
   windowsEVCodeSigning: false,
   fallbackToIndexHtml: true,
